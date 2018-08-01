@@ -9,7 +9,6 @@ namespace Leetcode
     class _1_Two_Sum
     {
         /// <summary>
-        /// 1. Two Sum 
         /// Beats 20%
         /// </summary>
         /// <param name="nums"></param>
@@ -35,8 +34,33 @@ namespace Leetcode
             return new int[] { 0, 0 };
         }
 
+        /// <summary>
+        /// Use a dictionary
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public int[] TwoSum_V2(int[] nums, int target)
+        {
+            Dictionary<int, int> numsDic = new Dictionary<int, int>();
 
+            for (int i = 0; i < nums.Length; i++)
+            {
+                numsDic.Add(nums[i], i);
+            }
 
+            for (int i = 0; i < nums.Length; i++)
+            {
+                var num2 = target - nums[i];
+
+                if (numsDic.ContainsKey(num2))
+                {
+                    return new int[] { i, numsDic[num2] };
+                }
+            }
+
+            throw new Exception();
+        }
         
     }
 }
