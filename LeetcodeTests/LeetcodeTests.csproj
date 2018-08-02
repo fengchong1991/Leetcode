@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_2_Add_Two_NumbersTests.cs" />
+    <Compile Include="_3_Longest_SubStringTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

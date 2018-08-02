@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="1_Two_Sum.cs" />
     <Compile Include="2_Add_Two_Numbers.cs" />
+    <Compile Include="3_Longest_SubString.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
