@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Leetcode
 {
-    class _1_Two_Sum
+    public class _1_Two_Sum
     {
         /// <summary>
         /// Beats 20%
