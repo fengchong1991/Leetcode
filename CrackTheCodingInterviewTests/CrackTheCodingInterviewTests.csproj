@@ -60,6 +60,11 @@
     <Compile Include="Chapter 1 Arrays and Strings\_1_2Tests.cs" />
     <Compile Include="Chapter 1 Arrays and Strings\_1_4Tests.cs" />
     <Compile Include="Chapter 1 Arrays and Strings\_1_5Tests.cs" />
+    <Compile Include="Chapter 1 Arrays and Strings\_1_6Tests.cs" />
+    <Compile Include="Chapter 1 Arrays and Strings\_1_7Tests.cs" />
+    <Compile Include="Chapter 1 Arrays and Strings\_1_8Tests.cs" />
+    <Compile Include="Chapter 1 Arrays and Strings\_1_9Tests.cs" />
+    <Compile Include="Chapter 2 Linked Lists\_2_1Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
