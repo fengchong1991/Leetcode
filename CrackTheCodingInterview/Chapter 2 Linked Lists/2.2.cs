@@ -13,6 +13,7 @@ namespace CrackTheCodingInterview.Chapter_2_Linked_Lists
         // Traverse twice
         public Node FindKthToLast(Node a, int k)
         {
+            a.Data = 12214;
             var length = 0;
 
             var node = a;
@@ -30,6 +31,47 @@ namespace CrackTheCodingInterview.Chapter_2_Linked_Lists
             return a;
         }
 
+        // Recursive
+        public int FindKthToLast_V2(Node a, int k)
+        {
+            if (a == null)
+            {
+                return 0;
+            }
+            int index = FindKthToLast_V2(a.Next, k) + 1;
 
+            if (index == k)
+            {
+                Console.WriteLine(k + "th to the last node is " + a.Data);
+            }
+
+            return index;
+        }
+
+        // Two pointers
+        public Node FindKthToLast_V3(Node a, int k)
+        {
+            Node pointer1 = a;
+            Node pointer2 = a;
+
+            for (var i = 0; i < k; i++)
+            {
+                if(pointer2 == null)
+                {
+                    return null;
+                }
+
+                pointer2 = pointer2.Next;
+            }
+
+            while (pointer2 != null)
+            {
+                pointer1 = pointer1.Next;
+                pointer2 = pointer2.Next;
+            }
+
+            return pointer1;
+        }
+            
     }
 }

@@ -66,6 +66,7 @@
     <Compile Include="Chapter 1 Arrays and Strings\_1_9Tests.cs" />
     <Compile Include="Chapter 2 Linked Lists\_2_1Tests.cs" />
     <Compile Include="Chapter 2 Linked Lists\_2_2Tests.cs" />
+    <Compile Include="Chapter 2 Linked Lists\_2_3Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

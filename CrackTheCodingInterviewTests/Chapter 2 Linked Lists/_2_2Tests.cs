@@ -29,5 +29,41 @@ namespace CrackTheCodingInterview.Chapter_2_Linked_Lists.Tests
             Assert.AreEqual(model.FindKthToLast(testData, 5).Data, 65);
             Assert.AreEqual(model.FindKthToLast(testData, 1).Data, 4);
         }
+
+        [TestMethod()]
+        public void FindKthToLast_V2Test()
+        {
+            var testData = new Node(5);
+
+            testData.AppendToTail(4);
+            testData.AppendToTail(65);
+            testData.AppendToTail(2);
+            testData.AppendToTail(34);
+            testData.AppendToTail(5);
+            testData.AppendToTail(4);
+
+            var model = new _2_2();
+
+            model.FindKthToLast_V2(testData, 3);
+        }
+
+        [TestMethod()]
+        public void FindKthToLast_V3Test()
+        {
+            var testData = new Node(5);
+
+            testData.AppendToTail(4);
+            testData.AppendToTail(65);
+            testData.AppendToTail(2);
+            testData.AppendToTail(34);
+            testData.AppendToTail(5);
+            testData.AppendToTail(4);
+
+            var model = new _2_2();
+
+            Assert.AreEqual(model.FindKthToLast(testData, 5).Data, 65);
+            Assert.AreEqual(model.FindKthToLast(testData, 4).Data, 2);
+            Assert.AreEqual(model.FindKthToLast(testData, 1).Data, 4);
+        }
     }
 }
