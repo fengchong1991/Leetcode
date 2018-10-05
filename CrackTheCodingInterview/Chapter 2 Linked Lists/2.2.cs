@@ -13,7 +13,23 @@ namespace CrackTheCodingInterview.Chapter_2_Linked_Lists
         // Traverse twice
         public Node FindKthToLast(Node a, int k)
         {
+            var length = 0;
 
+            var node = a;
+            while(node != null)
+            {
+                length++;
+                node = node.Next;
+            }
+
+            for(int i = 0; i < length-k; i++)
+            {
+                a = a.Next;
+            }
+
+            return a;
         }
+
+
     }
 }
