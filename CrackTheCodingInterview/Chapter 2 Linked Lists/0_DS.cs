@@ -54,5 +54,18 @@ namespace CrackTheCodingInterview.Chapter_2_Linked_Lists
 
             return head;
         }
+
+        public string PrintAll()
+        {
+            var toString = Data.ToString();
+
+            while(Next != null)
+            {
+                toString += " " + Next.Data.ToString();
+                Next = Next.Next;
+            }
+
+            return toString;
+        }
     }
 }
