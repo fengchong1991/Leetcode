@@ -22,7 +22,9 @@ namespace CrackTheCodingInterview.Chapter_2_Linked_Lists.Tests
 
             var model = new _2_6();
 
-            Assert.AreEqual(model.IsPalndrome(null), true);
+            //Assert.AreEqual(model.IsPalndrome(null), true);
+            Assert.AreEqual(model.IsPalndrome_V2(testData), true);
+
         }
     }
 }

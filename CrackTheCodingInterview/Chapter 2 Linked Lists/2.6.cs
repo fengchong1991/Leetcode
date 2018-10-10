@@ -58,9 +58,9 @@ namespace CrackTheCodingInterview.Chapter_2_Linked_Lists
 
         public bool IsEqual(Node a, Node b)
         {
-            while(a != null && b != null)
+            while (a != null && b != null)
             {
-                if(a.Data != b.Data)
+                if (a.Data != b.Data)
                 {
                     return false;
                 }
@@ -73,7 +73,7 @@ namespace CrackTheCodingInterview.Chapter_2_Linked_Lists
         }
 
 
-        // 
+        // Two pointers, one fast one slow. Push the first half to stack, compare it with the second half.
         public bool IsPalndrome_V2(Node a)
         {
             var stack = new Stack<int>();
@@ -81,16 +81,82 @@ namespace CrackTheCodingInterview.Chapter_2_Linked_Lists
             var pointer1 = a;
             var pointer2 = a;
 
-            while(pointer2 != null || pointer2.Next != null)
+            while (pointer2 != null && pointer2.Next != null)
             {
                 stack.Push(pointer1.Data);
                 pointer1 = pointer1.Next;
                 pointer2 = pointer2.Next.Next;
             }
 
-            if(pointer2 == null)
+            if (pointer2 != null)
             {
+                pointer1 = pointer1.Next;
+            }
 
+            while (pointer1 != null)
+            {
+                if (pointer1.Data != stack.Pop())
+                {
+                    return false;
+                }
+                pointer1 = pointer1.Next;
+            }
+
+            return true;
+        }
+
+        // Recursive
+        public bool IsPalndrome_V3(Node a)
+        {
+            var length = GetNodeLength(a);
+            var result = IsPalndromeRecur(a, length);
+            return result.PalnResult;
+        }
+
+        public Result IsPalndromeRecur(Node a, int length)
+        {
+            if (a == null || length == 0)
+            {
+                return new Result(a, true);
+            }
+            else if (length == 1)
+            {
+                return new Result(a.Next, true);
+            }
+
+            var res = IsPalndromeRecur(a.Next, length - 2);
+
+            if (!res.PalnResult || res.Node == null)
+            {
+                return res;
+            }
+            res.PalnResult = (a.Data == res.Node.Data);
+
+            res.Node = res.Node.Next;
+            return res;
+        }
+
+        public int GetNodeLength(Node a)
+        {
+            var length = 0;
+            while(a != null)
+            {
+                length++;
+                a = a.Next;
+            }
+
+            return length;
+        }
+
+        public class Result
+        {
+            public Node Node { get; set; }
+            public bool PalnResult { get; set; }
+
+            public Result(Node a, bool result)
+            {
+                Node = a;
+                PalnResult = result;
             }
         }
     }
