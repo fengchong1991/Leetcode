@@ -69,6 +69,7 @@
     <Compile Include="Chapter 2 Linked Lists\_2_3Tests.cs" />
     <Compile Include="Chapter 2 Linked Lists\_2_4Tests.cs" />
     <Compile Include="Chapter 2 Linked Lists\_2_5Tests.cs" />
+    <Compile Include="Chapter 2 Linked Lists\_2_6Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
