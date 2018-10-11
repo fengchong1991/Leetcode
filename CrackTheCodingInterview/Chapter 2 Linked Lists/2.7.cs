@@ -42,9 +42,51 @@ namespace CrackTheCodingInterview.Chapter_2_Linked_Lists
             return null;
         }
 
+        //
         public Node IsIntersect_V2(Node a, Node b)
         {
+            if(a == null || b== null)
+            {
+                return null;
+            }
+            
+            var lengthA = GetLinkedListLength(a);
+            var lengthB = GetLinkedListLength(b);
 
+            var longerList = lengthA >= lengthB ? a : b;
+            var shorterList = lengthA >= lengthB ? b : a;
+            
+            for(var i = 0; i < Math.Abs(lengthA - lengthB); i++)
+            {
+                longerList = longerList.Next;
+            }
+
+            while (longerList != null)
+            {
+                if(longerList == shorterList)
+                {
+                    return longerList;
+                }
+
+                longerList = longerList.Next;
+                shorterList = shorterList.Next;
+            }
+
+            return null;
+        }
+
+        public int GetLinkedListLength(Node a)
+        {
+            var length = 0;
+
+            while(a != null)
+            {
+                length++;
+
+                a = a.Next;
+            }
+
+            return length;
         }
     }
 }

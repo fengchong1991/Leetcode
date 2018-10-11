@@ -31,7 +31,7 @@ namespace CrackTheCodingInterview.Chapter_2_Linked_Lists.Tests
             var model = new _2_7();
 
 
-            Assert.AreEqual(model.IsIntersect(testData, testData2).Data, 1);
+            Assert.AreEqual(model.IsIntersect_V2(testData, testData2).Data, 1);
         }
 
     }
