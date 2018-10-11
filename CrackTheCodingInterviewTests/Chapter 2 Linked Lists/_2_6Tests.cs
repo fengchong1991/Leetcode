@@ -26,5 +26,19 @@ namespace CrackTheCodingInterview.Chapter_2_Linked_Lists.Tests
             Assert.AreEqual(model.IsPalndrome_V2(testData), true);
 
         }
+
+        [TestMethod()]
+        public void IsPalndromeRecurTest()
+        {
+            var testData = new Node(5);
+            testData.AppendToTail(2);
+            testData.AppendToTail(4);
+            testData.AppendToTail(2);
+            testData.AppendToTail(5);
+
+            var model = new _2_6();
+
+
+        }
     }
 }

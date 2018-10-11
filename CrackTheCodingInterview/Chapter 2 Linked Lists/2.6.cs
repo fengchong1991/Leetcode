@@ -115,23 +115,23 @@ namespace CrackTheCodingInterview.Chapter_2_Linked_Lists
 
         public Result IsPalndromeRecur(Node a, int length)
         {
-            if (a == null || length == 0)
+            if(a == null || length == 0)
             {
                 return new Result(a, true);
             }
-            else if (length == 1)
+            else if(length ==1)
             {
                 return new Result(a.Next, true);
             }
 
             var res = IsPalndromeRecur(a.Next, length - 2);
 
-            if (!res.PalnResult || res.Node == null)
+            if(res.PalnResult == false || res.Node == null)
             {
                 return res;
             }
-            res.PalnResult = (a.Data == res.Node.Data);
 
+            res.PalnResult = a.Data == res.Node.Data;
             res.Node = res.Node.Next;
             return res;
         }

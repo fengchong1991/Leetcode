@@ -55,6 +55,8 @@
     <Compile Include="Chapter 2 Linked Lists\2.3.cs" />
     <Compile Include="Chapter 2 Linked Lists\2.4.cs" />
     <Compile Include="Chapter 2 Linked Lists\2.6.cs" />
+    <Compile Include="Chapter 2 Linked Lists\2.7.cs" />
+    <Compile Include="Chapter 2 Linked Lists\2.8.cs" />
     <Compile Include="Chapter 3 Stacks and Queues\0_DS.cs" />
     <Compile Include="Chapter 3 Stacks and Queues\3.1.cs" />
     <Compile Include="Program.cs" />
