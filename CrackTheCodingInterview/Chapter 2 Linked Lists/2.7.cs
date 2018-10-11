@@ -42,25 +42,29 @@ namespace CrackTheCodingInterview.Chapter_2_Linked_Lists
             return null;
         }
 
-        //
+
         public Node IsIntersect_V2(Node a, Node b)
         {
             if(a == null || b== null)
             {
                 return null;
             }
-            
+         
+            // Get the length of two linked list
             var lengthA = GetLinkedListLength(a);
             var lengthB = GetLinkedListLength(b);
 
+            // Find the longer one and the shorter one
             var longerList = lengthA >= lengthB ? a : b;
             var shorterList = lengthA >= lengthB ? b : a;
-            
+         
+            // Cut the extra nodes from the longer list
             for(var i = 0; i < Math.Abs(lengthA - lengthB); i++)
             {
                 longerList = longerList.Next;
             }
 
+            // Compare two linked list
             while (longerList != null)
             {
                 if(longerList == shorterList)
