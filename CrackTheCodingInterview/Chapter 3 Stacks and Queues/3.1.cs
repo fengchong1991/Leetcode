@@ -14,14 +14,60 @@ namespace CrackTheCodingInterview.Chapter_3_Stacks_and_Queues
         
     }
 
+    // Implement multiple stacks using an array
     public class MyStackForThree
     {
-        private const int Number = 3;
+        private const int numberOfStacks = 3;
+        private int[] stack;
+        private int[] stackSize;
+        private readonly int stackCapacity;
 
-
-        public MyStackForThree(int stackSize)
+        public MyStackForThree(int stackNum)
         {
+            stack = new int[stackNum * numberOfStacks];
+            stackSize = new int[numberOfStacks];
+            stackCapacity = stackNum;
+        }
 
+        public void Push(int data, int stackIndex)
+        {
+            if(stackSize[stackIndex] >= stackCapacity)
+            {
+                throw new Exception();
+            }
+            stack[IndexOfTop(stackIndex)] = data;
+            stackSize[stackIndex]++;
+        }
+        
+        public int Pop(int stackIndex)
+        {
+            if(stackSize[stackIndex] <= 0)
+            {
+                throw new Exception();
+            }
+
+            var index = IndexOfTop(stackIndex);
+            var result = stack[index];
+            stack[index] = 0;
+            stackSize[index]--;
+            return result; 
+        }
+
+        public int Peek(int stackIndex)
+        {
+            if(stackSize[stackIndex] <= 0)
+            {
+                throw new Exception();
+            }
+
+            return stack[IndexOfTop(stackIndex)];
+        }
+
+        public int IndexOfTop(int stackIndex)
+        {
+            var offset = stackIndex * stackCapacity;
+            var size = stackSize[stackIndex];
+            return offset + size;
         }
     }
 }
