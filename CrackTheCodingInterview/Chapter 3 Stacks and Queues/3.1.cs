@@ -19,9 +19,8 @@ namespace CrackTheCodingInterview.Chapter_3_Stacks_and_Queues
         private const int Number = 3;
 
 
-        public MyStackForThree(int numberOfStack)
+        public MyStackForThree(int stackSize)
         {
-
 
         }
     }

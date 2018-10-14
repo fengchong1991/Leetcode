@@ -21,9 +21,53 @@ namespace CrackTheCodingInterview.Chapter_2_Linked_Lists
         //A - > B - > C - > D - > E - > C[the same C as earlier]
         //C
 
+        // Use dictionary
         public Node FindLoop(Node a)
         {
+            var nodeDic = new HashSet<Node>();
 
+            while(a != null && nodeDic.Add(a))
+            {
+                a = a.Next;
+            }
+
+            return a;
+        }
+
+        // Fast runner and slow runner
+        public Node FindLoop_V2(Node a)
+        {
+            // Create a faster and slower runner
+            var faster = a;
+            var slower = a;
+            
+            // Find when they collide
+            while (faster != null && faster.Next != null)
+            {
+                faster = faster.Next.Next;
+                slower = slower.Next;
+
+                if(faster == slower)
+                {
+                    break;
+                }
+            }
+
+            // Check errors
+            if(faster == null || faster.Next == null)
+            {
+                return null;
+            }
+
+            // Move slower to start, they are equally far away from the loop start
+            slower = a;
+            while(slower != faster)
+            {
+                slower = slower.Next;
+                faster = faster.Next;
+            }
+
+            return faster;
         }
     }
 }
