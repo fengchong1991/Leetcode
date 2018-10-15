@@ -7,12 +7,6 @@ using System.Threading.Tasks;
 namespace CrackTheCodingInterview.Chapter_3_Stacks_and_Queues
 {
     //    Three in One: Describe how you could use a single array to implement three stacks.
-    class _3_1
-    {
-        
-
-        
-    }
 
     // Implement multiple stacks using an array
     public class MyStackForThree
