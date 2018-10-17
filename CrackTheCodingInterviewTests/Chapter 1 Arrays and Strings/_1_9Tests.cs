@@ -14,8 +14,6 @@ namespace CrackTheCodingInterview.Chapter_1_Arrays_and_Strings.Tests
         [TestMethod()]
         public void IsRotationTest()
         {
-            var testData = "awefewe";
-
             var model = new _1_9();
 
             model.IsRotation("aweawe", "weawea");
