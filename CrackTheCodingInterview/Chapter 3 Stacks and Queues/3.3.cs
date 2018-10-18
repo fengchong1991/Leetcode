@@ -66,6 +66,90 @@ namespace CrackTheCodingInterview.Chapter_3_Stacks_and_Queues
         }
     }
 
+    // Follow up question
+    // Shift the whole stacks if a stack in the middle is popped
+    public class StackSetForPlatesShift
+    {
+        public int _stackSize;
+        public List<StackForPlates> _stacks;
+        
+        public StackSetForPlatesShift(int stackSize)
+        {
+            _stackSize = stackSize;
+            _stacks = new List<StackForPlates>();
+        }
+
+        public void Push(int data)
+        {
+            var stack = GetCurrent();
+            if (stack == null || stack.IsFull())
+            {
+                stack = new StackForPlates(_stackSize);
+                _stacks.Add(stack);
+            }
+
+            stack.Push(data);
+        }
+               
+        public StackNodeForPlates Pop(int index)
+        {
+            return Shift(index, true);      
+        }
+
+        public StackNodeForPlates Shift(int index, bool removeTop)
+        {
+            if (index < 0 || index >= _stacks.Count)
+            {
+                return null;
+            }
+
+            var stack = _stacks[index];
+
+            StackNodeForPlates result;
+
+            // This is the stack, remove the top one
+            if (removeTop)
+            {
+                result = stack.Pop();
+            }
+            // This is the next stack, remove the bottom one
+            else
+            {
+                result = stack.RemoveBottom();
+            }
+
+            // If this stack is empty after removing a node, remove the whole stack
+            if (stack.IsEmpty())
+            {
+                _stacks.RemoveAt(index);
+            }
+            else
+            {
+                // Shift the next stack
+                var node = Shift(index + 1, false);
+
+                // Recursively push the node
+                if (node != null)
+                {
+                    stack.Push(node.Data);
+                }
+            }
+
+            return result;
+        }
+        
+
+        public StackForPlates GetCurrent()
+        {
+            if(_stacks.Count == 0)
+            {
+                return null;
+            }
+
+            return _stacks.Last();
+        }
+    }
+             
     public class StackForPlates
     {
         private int _capacity;
@@ -91,6 +175,27 @@ namespace CrackTheCodingInterview.Chapter_3_Stacks_and_Queues
             var data = _top;
             _top = _top.Next;
             return data;
+        }
+
+        public StackNodeForPlates RemoveBottom()
+        {
+            var currentNode = _top;
+            var head = _top;
+
+            if (head == null)
+            {
+                throw new Exception();
+            }
+
+            while(head.Next != null)
+            {
+                currentNode = head;
+                head = head.Next;
+            }
+
+            currentNode.Next = null;
+            _size--;
+            return head;
         }
 
         public bool IsFull()

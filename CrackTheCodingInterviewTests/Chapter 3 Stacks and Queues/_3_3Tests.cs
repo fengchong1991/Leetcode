@@ -50,4 +50,48 @@ namespace CrackTheCodingInterview.Chapter_3_Stacks_and_Queues.Tests
             Assert.AreEqual(model.GetCurrentOne(), null);
         }
     }
+
+    [TestClass()]
+    public class StackSetForPlatesShiftTests
+    {
+        [TestMethod()]
+        public void StackSetForPlatesShiftTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void PushTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void PopTest()
+        {
+            var model = new StackSetForPlatesShift(1);
+            model.Push(5);
+            model.Push(4);
+            model.Push(6);
+            model.Push(2);
+            model.Push(12);
+            model.Push(612);
+            //model.Push(55);
+            //model.Push(6);
+
+            model.Pop(10);
+        }
+
+        [TestMethod()]
+        public void ShiftTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void GetCurrentTest()
+        {
+            Assert.Fail();
+        }
+    }
 }
