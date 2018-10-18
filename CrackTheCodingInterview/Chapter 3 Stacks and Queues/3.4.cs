@@ -11,29 +11,43 @@ namespace CrackTheCodingInterview.Chapter_3_Stacks_and_Queues
 	// User two stacks, the second will be a reverse stack of the first one
 	public class MyQueue2<T>
     {
-        private MyStackForQueue<T> _stack1;
-        private MyStackForQueue<T> _stack2;
+        private MyStackForQueue<T> _stackNew;
+        private MyStackForQueue<T> _stackOld;
 
-		public MyQueue()
+		public MyQueue2()
         {
-            _stack1 = new MyStackForQueue<T>();
-            _stack2 = new MyStackForQueue<T>();
+            _stackNew = new MyStackForQueue<T>();
+            _stackOld = new MyStackForQueue<T>();
         }
 
 		public void Add(T data)
         {
-            _stack1.Push(data);
+            _stackNew.Push(data);
 
+        }
+
+		// Move everything from new stack to old stack
+		private void ShiftStacks()
+        {
+            if (_stackOld.IsEmpty())
+            {
+                while (!_stackNew.IsEmpty())
+                {
+                    _stackOld.Push(_stackNew.Pop());
+                }
+            }
         }
 
 		public T Remove()
         {
-
+            ShiftStacks();
+            return _stackOld.Pop();
         }
 
 		public T Peek()
         {
-
+            ShiftStacks();
+            return _stackOld.Peek();
         }
     }
 

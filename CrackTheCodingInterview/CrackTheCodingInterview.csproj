@@ -60,6 +60,7 @@
     <Compile Include="Chapter 3 Stacks and Queues\0_DS.cs" />
     <Compile Include="Chapter 3 Stacks and Queues\3.1.cs" />
     <Compile Include="Chapter 3 Stacks and Queues\3.3.cs" />
+    <Compile Include="Chapter 3 Stacks and Queues\3.5.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -72,6 +73,7 @@
     <Compile Include="Chapter 1 Arrays and Strings\1.9.cs" />
     <Compile Include="Chapter 2 Linked Lists\2.5.cs" />
     <Compile Include="Chapter 3 Stacks and Queues\3.2.cs" />
+    <Compile Include="Chapter 3 Stacks and Queues\3.4.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
