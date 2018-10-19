@@ -1,0 +1,107 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
+{
+    // Balanced vs. Unbalanced
+
+    // While many trees are balanced, not all are. Ask your interviewer for clarification here. Note that balancing a
+    // tree does not mean the left and right subtrees are exactly the same size(like you see under "perfect binary
+    // trees" in the following diagram).
+
+    // One way to think about it is that a "balanced" tree really means something more like "not terribly imbalanced:'
+    // It's balanced enough to ensure 0( log n) times for insert and find, but it's not necessarily as
+    // balanced as it could be.
+
+
+    // Complete Binary Trees
+
+    // A complete binary tree is a binary tree in which every level of the tree is fully filled, except for perhaps the
+    // last level.To the extent that the last level is filled, it is filled left to right.
+
+
+    // Full Binary Trees
+
+    // A full binary tree is a binary tree in which every node has either zero or two children. That is, no nodes have
+    // only one child.
+
+
+    // Perfect Binary Trees
+    // A perfect binary tree is one that is both full and complete. All leaf nodes will be at the same level, and this
+    // level has the maximum number of nodes. A perfect tree has 2^k - 1 nodes, where k is the number of levels.
+
+    public class TreeNode
+    {
+        public string Name { get; set; }
+        public TreeNode[] Children { get; set; }
+    }
+
+    public class Tree
+    {
+        public TreeNode root { get; set; }
+
+    }
+
+    public class BinaryTreeNode
+    {
+        public int Value { get; set; }
+        public BinaryTreeNode Left { get; set; }
+        public BinaryTreeNode Right { get; set; }
+
+
+
+        /// <summary>
+        ///       4
+        ///     /    \
+        ///    2      6
+        ///   / \    / \
+        ///  1   3  5   7    
+        /// </summary>
+        /// <param name="node"></param>
+
+
+        // 1 2 3 4 5 6 7
+        //In-order traversal means to "visit" (often, print) the left branch, then the current node, and finally, the right branch.
+        public static void InOrderTraversal(BinaryTreeNode node)
+        {
+            if(node != null)
+            {
+                InOrderTraversal(node.Left);
+                // Visit(node);
+                InOrderTraversal(node.Right);                
+            }
+        }
+
+        // 1 3 2 5 7 6 4
+        //Post-order traversal visits the current node after its child nodes(hence the name "post-order").
+        public static void PostOrderTraversal(BinaryTreeNode node)
+        {
+            if (node != null)
+            {
+                InOrderTraversal(node.Left);
+                InOrderTraversal(node.Right);
+                // Visit(node);
+            }
+        }
+
+        // 4 2 1 3 6 5 7
+        // Pre-order traversal visits the current node before its child nodes (hence the name "pre-order").
+        public static void PriorOrderTraversal(BinaryTreeNode node)
+        {
+            if (node != null)
+            {
+                // Visit(node);
+                InOrderTraversal(node.Left);
+                InOrderTraversal(node.Right);
+            }
+        }
+    }
+
+
+    // Binary Heaps
+
+
+}

@@ -56,8 +56,6 @@ namespace CrackTheCodingInterview.Chapter_3_Stacks_and_Queues
 
     }
 
-
-
     public class StackNode {
         public int Data { get; set; }
         public int Min { get; set; }
