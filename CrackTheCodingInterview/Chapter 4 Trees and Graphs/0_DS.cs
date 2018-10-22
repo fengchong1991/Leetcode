@@ -100,8 +100,69 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
         }
     }
 
-
     // Binary Heaps
+    // A min-heap is a complete binary tree(that is, totally filled other than the rightmost elements on the last
+    // level) where each node is smaller than its children.The root, therefore, is the minimum element in the tree.
+    // We have two key operations on a min-heap: insert and extract_min.
 
+    // Tries (Prefix Trees)
+
+
+    // Graph
+
+    // Adjacency List
+    // This is the most common way to represent a graph.Every vertex (or node) stores a list of adjacent vertices.
+    // In an undirected graph, an edge like (a, b) would be stored twice: once in a's adjacent vertices and once
+    // in b's adjacent vertices.
+
+    public class Graph
+    {
+        public Node[] nodes;
+    }
+
+    public class Node
+    {
+        public string Name { get; set; }
+        public Node[] Children { get; set; }
+    }
+
+    // Adjacency Matrices
+    //    An adjacency matrix is an NxN boolean matrix(where N is the number of nodes), where a true value at
+    //matrix[i][j] indicates an edge from node i to node j. (You can also use an integer matrix with Os and
+    //1 s.)
+       
+    
+    // Graph Search
+
+    public class GraphSerach
+    {
+        //DFS
+        public void Search(GraphNode root)
+        {
+            if(root == null)
+            {
+                return;
+            }
+
+            // Visit root
+            root.Visited = true;
+
+            foreach(var n in root.adjacent)
+            {
+                if (n.Visited == false)
+                {
+                    Search(n);
+                }
+            }
+        }
+
+
+        //BFS
+        public class GraphNode
+        {
+            public bool Visited { get; set; }
+            public GraphNode[] adjacent { get; set; }
+        }
+    }
 
 }
