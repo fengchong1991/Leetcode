@@ -133,11 +133,10 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
        
     
     // Graph Search
-
     public class GraphSerach
     {
         //DFS
-        public void Search(GraphNode root)
+        public void DFSSearch(GraphNode root)
         {
             if(root == null)
             {
@@ -151,13 +150,36 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
             {
                 if (n.Visited == false)
                 {
-                    Search(n);
+                    DFSSearch(n);
                 }
             }
         }
 
+        //BFS use queue
+        public void BFSSearch(GraphNode root)
+        {
+            Queue<GraphNode> queue = new Queue<GraphNode>();
 
-        //BFS
+            root.Visited = true;
+
+            queue.Enqueue(root);
+
+            while(queue.Count != 0)
+            {
+                var node = queue.Dequeue();
+                // Visit(node);
+
+                foreach(GraphNode n in node.adjacent)
+                {
+                    if(n.Visited == false)
+                    {
+                        n.Visited = true;
+                        queue.Enqueue(n);
+                    }
+                }
+            }
+        }
+                     
         public class GraphNode
         {
             public bool Visited { get; set; }

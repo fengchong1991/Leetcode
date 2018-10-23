@@ -42,6 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="595_Big Countries.cs" />
+    <Compile Include="709_To Lower case.cs" />
+    <Compile Include="760_Find Anagram Mappings.cs" />
+    <Compile Include="771_Jewels and Stones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

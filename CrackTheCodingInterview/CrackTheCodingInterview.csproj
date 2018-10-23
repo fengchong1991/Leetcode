@@ -63,6 +63,7 @@
     <Compile Include="Chapter 3 Stacks and Queues\3.5.cs" />
     <Compile Include="Chapter 3 Stacks and Queues\3.6.cs" />
     <Compile Include="Chapter 4 Trees and Graphs\0_DS.cs" />
+    <Compile Include="Chapter 4 Trees and Graphs\4.1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
