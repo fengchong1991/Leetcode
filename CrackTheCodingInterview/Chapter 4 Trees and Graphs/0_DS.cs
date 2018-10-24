@@ -122,8 +122,9 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
 
     public class Node
     {
+        public bool Visited { get; set; }
         public string Name { get; set; }
-        public Node[] Children { get; set; }
+        public List<Node> AdjacentNodes { get; set; } = new List<Node>();
     }
 
     // Adjacency Matrices
