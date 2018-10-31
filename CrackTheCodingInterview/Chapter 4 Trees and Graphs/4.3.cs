@@ -41,11 +41,46 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
             CreateLinkedList(node.Right, listOfLinkedList, level + 1);            
         }
 
-
         // Use breadth-first traversal 
-        public List<LinkedList<BinaryTreeNode>> CreateLinkedLists_BFS(BinaryTreeNode node)
+        public List<LinkedList<BinaryTreeNode>> CreateLinkedLists_BFS(BinaryTreeNode root)
         {
+            if(root == null)
+            {
+                return null;
+            }
 
+            // Create empty list
+            var listOfLinkedList = new List<LinkedList<BinaryTreeNode>>();
+
+            var currentList = new LinkedList<BinaryTreeNode>();
+
+            // Add root to queue
+            currentList.AddLast(root);
+            
+            while(currentList.Count != 0)
+            {
+                listOfLinkedList.Add(currentList);
+
+                LinkedList<BinaryTreeNode> parents = currentList; //Go to next level
+
+                foreach (var node in parents)
+                {
+                    if (node.Left != null)
+                    {
+                        currentList.AddLast(node.Left);
+                    }
+                }
+
+                foreach (var node in parents)
+                {
+                    if (node.Right != null)
+                    {
+                        currentList.AddLast(node.Right);
+                    }
+                }
+            }
+
+            return listOfLinkedList;
         }
     }
 }
