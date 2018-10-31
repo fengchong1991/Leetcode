@@ -47,11 +47,15 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
 
     public class BinaryTreeNode
     {
+        public BinaryTreeNode(int value)
+        {
+            Value = value;
+        }
+
         public int Value { get; set; }
         public BinaryTreeNode Left { get; set; }
         public BinaryTreeNode Right { get; set; }
-
-
+                
 
         /// <summary>
         ///       4
@@ -81,21 +85,21 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
         {
             if (node != null)
             {
-                InOrderTraversal(node.Left);
-                InOrderTraversal(node.Right);
+                PostOrderTraversal(node.Left);
+                PostOrderTraversal(node.Right);
                 // Visit(node);
             }
         }
 
         // 4 2 1 3 6 5 7
         // Pre-order traversal visits the current node before its child nodes (hence the name "pre-order").
-        public static void PriorOrderTraversal(BinaryTreeNode node)
+        public static void PreOrderTraversal(BinaryTreeNode node)
         {
             if (node != null)
             {
                 // Visit(node);
-                InOrderTraversal(node.Left);
-                InOrderTraversal(node.Right);
+                PreOrderTraversal(node.Left);
+                PreOrderTraversal(node.Right);
             }
         }
     }
