@@ -14,6 +14,8 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
     public class _4_3
     {
         // Use pre-order tranversal to do this
+        // Run time: O(n)
+        // Space complexity: O(n) data needs to be returned
         public List<LinkedList<BinaryTreeNode>> CreateLinkedLists(BinaryTreeNode root) 
         {
 
@@ -41,7 +43,10 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
             CreateLinkedList(node.Right, listOfLinkedList, level + 1);            
         }
 
+
         // Use breadth-first traversal 
+        // Run time: O(n)
+        // Space: O(n)
         public List<LinkedList<BinaryTreeNode>> CreateLinkedLists_BFS(BinaryTreeNode root)
         {
             if(root == null)
@@ -49,38 +54,36 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
                 return null;
             }
 
-            // Create empty list
-            var listOfLinkedList = new List<LinkedList<BinaryTreeNode>>();
+            var list = new List<LinkedList<BinaryTreeNode>>();
 
-            var currentList = new LinkedList<BinaryTreeNode>();
+            var linkedList = new LinkedList<BinaryTreeNode>();
 
-            // Add root to queue
-            currentList.AddLast(root);
-            
-            while(currentList.Count != 0)
+            // Add the first level to the lists
+            linkedList.AddLast(root);
+
+            while(linkedList.Count > 0)
             {
-                listOfLinkedList.Add(currentList);
+                list.Add(linkedList);
+                var parentList = linkedList;
 
-                LinkedList<BinaryTreeNode> parents = currentList; //Go to next level
+                linkedList = new LinkedList<BinaryTreeNode>();
 
-                foreach (var node in parents)
+                // Add children of this level to the list
+                foreach (var node in parentList)
                 {
                     if (node.Left != null)
                     {
-                        currentList.AddLast(node.Left);
+                        linkedList.AddLast(node.Left);
                     }
-                }
 
-                foreach (var node in parents)
-                {
                     if (node.Right != null)
                     {
-                        currentList.AddLast(node.Right);
+                        linkedList.AddLast(node.Right);
                     }
                 }
             }
 
-            return listOfLinkedList;
+            return list;
         }
     }
 }

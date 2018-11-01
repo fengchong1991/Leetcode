@@ -76,6 +76,7 @@
     <Compile Include="Chapter 4 Trees and Graphs\_4_1Tests.cs" />
     <Compile Include="Chapter 4 Trees and Graphs\_4_2Tests.cs" />
     <Compile Include="Chapter 4 Trees and Graphs\_4_3Tests.cs" />
+    <Compile Include="Chapter 4 Trees and Graphs\_4_4Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

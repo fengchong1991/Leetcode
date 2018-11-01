@@ -140,7 +140,7 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
     // Graph Search
     public class GraphSerach
     {
-        //DFS
+        //Depth-first search
         public void DFSSearch(GraphNode root)
         {
             if(root == null)
@@ -160,7 +160,7 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
             }
         }
 
-        //BFS use queue
+        //Breadth-first serach, use queue
         public void BFSSearch(GraphNode root)
         {
             Queue<GraphNode> queue = new Queue<GraphNode>();
