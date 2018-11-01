@@ -14,6 +14,8 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
     public class _4_3
     {
         // Use pre-order tranversal to do this
+        // Run time: O(n)
+        // Space complexity: O(n) data needs to be returned
         public List<LinkedList<BinaryTreeNode>> CreateLinkedLists(BinaryTreeNode root) 
         {
 
@@ -43,9 +45,45 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
 
 
         // Use breadth-first traversal 
-        public List<LinkedList<BinaryTreeNode>> CreateLinkedLists_BFS(BinaryTreeNode node)
+        // Run time: O(n)
+        // Space: O(n)
+        public List<LinkedList<BinaryTreeNode>> CreateLinkedLists_BFS(BinaryTreeNode root)
         {
+            if(root == null)
+            {
+                return null;
+            }
 
+            var list = new List<LinkedList<BinaryTreeNode>>();
+
+            var linkedList = new LinkedList<BinaryTreeNode>();
+
+            // Add the first level to the lists
+            linkedList.AddLast(root);
+
+            while(linkedList.Count > 0)
+            {
+                list.Add(linkedList);
+                var parentList = linkedList;
+
+                linkedList = new LinkedList<BinaryTreeNode>();
+
+                // Add children of this level to the list
+                foreach (var node in parentList)
+                {
+                    if (node.Left != null)
+                    {
+                        linkedList.AddLast(node.Left);
+                    }
+
+                    if (node.Right != null)
+                    {
+                        linkedList.AddLast(node.Right);
+                    }
+                }
+            }
+
+            return list;
         }
     }
 }
