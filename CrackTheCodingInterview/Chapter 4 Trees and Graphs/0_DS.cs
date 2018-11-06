@@ -66,6 +66,7 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
         /// </summary>
         /// <param name="node"></param>
 
+        // In-order traversal, post-order traversal, pre-order traversal are all DFS
 
         // 1 2 3 4 5 6 7
         //In-order traversal means to "visit" (often, print) the left branch, then the current node, and finally, the right branch.

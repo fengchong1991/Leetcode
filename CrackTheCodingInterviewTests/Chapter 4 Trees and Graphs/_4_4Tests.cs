@@ -30,7 +30,7 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs.Tests
             node2.Right = node4;
             node4.Right = node6;
 
-            Assert.AreEqual(model.GetHeight(node6).Balanced, true);
+            Assert.AreEqual(model.IsBalanced(node1), true);
         }
     }
 }
