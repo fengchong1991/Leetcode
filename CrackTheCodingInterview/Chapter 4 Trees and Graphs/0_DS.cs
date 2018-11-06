@@ -55,7 +55,8 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
         public int Value { get; set; }
         public BinaryTreeNode Left { get; set; }
         public BinaryTreeNode Right { get; set; }
-                
+        public BinaryTreeNode Parent { get; set; }
+        
 
         /// <summary>
         ///       4
