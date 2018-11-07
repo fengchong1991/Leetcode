@@ -23,7 +23,7 @@ namespace Leetcode
     //S and J will consist of letters and have length at most 50.
     //The characters in J are distinct.
 
-    class _771_Jewels_and_Stones
+    public class _771_Jewels_and_Stones
     {
         public int NumJewelsInStones(string J, string S)
         {

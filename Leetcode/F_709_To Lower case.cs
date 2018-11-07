@@ -22,7 +22,7 @@ namespace Leetcode
     // Input: "LOVELY"
     // Output: "lovely"
 
-    public class _709
+    public class _709_To_Lower
     {
         public string ToLowerCase(string str)
         {
@@ -44,6 +44,5 @@ namespace Leetcode
 
             return builder.ToString();    
         }
-
     }
 }

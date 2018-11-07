@@ -42,10 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="595_Big Countries.cs" />
-    <Compile Include="709_To Lower case.cs" />
-    <Compile Include="760_Find Anagram Mappings.cs" />
-    <Compile Include="771_Jewels and Stones.cs" />
+    <Compile Include="804_Unique_Morse_Code_Words.cs" />
+    <Compile Include="F_929_Unique_Email_Addresses.cs" />
+    <Compile Include="U_595_Big Countries.cs" />
+    <Compile Include="F_709_To Lower case.cs" />
+    <Compile Include="U_760_Find Anagram Mappings.cs" />
+    <Compile Include="F_771_Jewels and Stones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
