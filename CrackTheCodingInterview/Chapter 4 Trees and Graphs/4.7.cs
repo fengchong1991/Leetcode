@@ -17,7 +17,9 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
     //Output: f, e, a, b, d, c
     public class _4_7
     {
+        public void CreateBuildOrder()
+        {
 
-
+        }    
     }
 }
