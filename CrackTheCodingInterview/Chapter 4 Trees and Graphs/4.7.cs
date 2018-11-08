@@ -17,9 +17,38 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
     //Output: f, e, a, b, d, c
     public class _4_7
     {
-        public void CreateBuildOrder()
+
+        public void CreateBuildOrder(Project[] projects)
+        {
+            
+            // Find all nodes that have 0 incoming edge
+
+        }   
+        
+        public void CreateBuilderOrder_V2()
         {
 
-        }    
+        }
+    }
+
+    public class Project
+    {
+        public string Name { get; set; }
+        public int Dependencis { get; set; }
+        public List<Project> Children { get; set; } = new List<Project>();
+        private HashSet<string> Set = new HashSet<string>();
+
+        public Project(string name)
+        {
+            Name = name;
+        }
+
+        public void AddNeighbor(Project node)
+        {
+            if (Set.Add(node.Name)){
+                Children.Add(node);
+                node.Dependencis++;
+            }
+        }
     }
 }
