@@ -17,17 +17,116 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
     //Output: f, e, a, b, d, c
     public class _4_7
     {
-
-        public void CreateBuildOrder(Project[] projects)
+        // Give an array of projects and an array of dependencies, build project graph object
+        public ProjectGraph SetupGraph(string[] projects, string[][] dependencies)
         {
+            ProjectGraph graph = new ProjectGraph();
             
-            // Find all nodes that have 0 incoming edge
+            foreach(var project in projects)
+            {
+                graph.CreateOrGetProject(project);
+            }
 
+            foreach(var dependency in dependencies)
+            {
+                graph.AddDependency(dependency[0], dependency[1]);
+            }
+            
+            return graph;
+        }
+
+        public Project[] CreateBuildOrder(string[] projects, string[][] dependencies)
+        {
+            // Setup the graph
+            var graph = SetupGraph(projects, dependencies);
+
+            // Create project builder order
+            var order = CreateOrder(graph);
+
+            return order;
         }   
+
+        public Project[] CreateOrder(ProjectGraph graph)
+        {
+            var order = new Project[graph.Projects.Count];
+
+            // Add project with 0 dependencies to build order array
+            var index = 0;
+            foreach (var project in graph.Projects)
+            {
+                if (project.Dependencis == 0)
+                {
+                    order[index] = project;
+                    index++;
+                }
+            }
+
+            // Proceed each in the builder order array, i.e. find it's children and decrease their dependencies
+            int processed = 0;
+            while(processed < order.Length)
+            {
+                var project = order[processed];
+                
+                // If project is null, meaning their are circular dependency so it cannot be build
+                if(project == null)
+                {
+                    throw new Exception("Cannot be built");
+                }
+
+                foreach(var dependentant in project.Children)
+                {
+                    dependentant.Dependencis--;
+                }
+
+                // If any child has zero dependecies, add this to build order array
+                foreach(var p in project.Children)
+                {
+                    if(p.Dependencis == 0)
+                    {
+                        order[index] = p;
+                        index++;
+                    }
+                }
+
+                processed++;
+            }
+
+            return order;
+        }
         
         public void CreateBuilderOrder_V2()
         {
+            
+        }
+    }
 
+
+    // Helper classes
+    public class ProjectGraph
+    {
+        public List<Project> Projects { get; set; } = new List<Project>();
+        public Dictionary<string, Project> Map { get; set; } = new Dictionary<string, Project>();
+
+        public Project CreateOrGetProject(string projectName)
+        {
+            if (!Map.ContainsKey(projectName))
+            {
+                var project = new Project(projectName);
+                Map.Add(projectName, project);
+                Projects.Add(project);
+                return project;
+            }
+            else
+            {
+                return Map[projectName];
+            }
+        }
+
+        public void AddDependency(string project1, string project2)
+        {
+            var p1 = CreateOrGetProject(project1);
+            var p2 = CreateOrGetProject(project2);
+            p1.AddNeighbor(p2);
         }
     }
 
