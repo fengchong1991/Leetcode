@@ -35,6 +35,7 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
             return graph;
         }
 
+        // Running time: O(P+D) P is number of projects and D is number of dependencies
         public Project[] CreateBuildOrder(string[] projects, string[][] dependencies)
         {
             // Setup the graph
@@ -73,14 +74,11 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
                     throw new Exception("Cannot be built");
                 }
 
-                foreach(var dependentant in project.Children)
-                {
-                    dependentant.Dependencis--;
-                }
-
                 // If any child has zero dependecies, add this to build order array
                 foreach(var p in project.Children)
                 {
+                    p.Dependencis--;
+
                     if(p.Dependencis == 0)
                     {
                         order[index] = p;
@@ -94,10 +92,18 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
             return order;
         }
         
-        public void CreateBuilderOrder_V2()
+        // Use Depth first search
+        public Project[] CreateBuilderOrder_V2(string[] projects, string[][] dependencies)
         {
+            // Setup the graph
+            var graph = SetupGraph(projects, dependencies);
             
+            
+
+
         }
+
+
     }
 
 
@@ -134,6 +140,8 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
     {
         public string Name { get; set; }
         public int Dependencis { get; set; }
+        public bool Built { get; set; }
+
         public List<Project> Children { get; set; } = new List<Project>();
         private HashSet<string> Set = new HashSet<string>();
 
