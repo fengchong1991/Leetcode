@@ -97,16 +97,31 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
         {
             // Setup the graph
             var graph = SetupGraph(projects, dependencies);
-            
-            
+            var builderOrder = new Project[graph.Projects.Count];
+            var index = graph.Projects.Count - 1;
 
+            foreach (var project in graph.Projects)
+            {
+                CreateOrder_V2(project, builderOrder, index);
+            }
 
+            return builderOrder;
         }
 
-
+        public void CreateOrder_V2(Project project, Project[] order, int index)
+        {
+            if (project.Built)
+            {
+                return;
+            }
+            
+            if(project.Children == null)
+            {
+            
+            }
+        }
     }
-
-
+    
     // Helper classes
     public class ProjectGraph
     {

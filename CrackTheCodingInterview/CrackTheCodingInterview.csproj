@@ -70,6 +70,7 @@
     <Compile Include="Chapter 4 Trees and Graphs\4.5.cs" />
     <Compile Include="Chapter 4 Trees and Graphs\4.6.cs" />
     <Compile Include="Chapter 4 Trees and Graphs\4.7.cs" />
+    <Compile Include="Chapter 4 Trees and Graphs\4.8.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
