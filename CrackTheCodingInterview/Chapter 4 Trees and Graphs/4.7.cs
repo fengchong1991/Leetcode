@@ -92,33 +92,81 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
             return order;
         }
         
-        // Use Depth first search
-        public Project[] CreateBuilderOrder_V2(string[] projects, string[][] dependencies)
+        // Use Depth first search and a stack
+        // Use a stack to create build order
+        // Run time: O(P+D) P is the number of projects and D is the number of dependencies
+        public Stack<Project> CreateBuilderOrder_V2(string[] projects, string[][] dependencies)
         {
             // Setup the graph
             var graph = SetupGraph(projects, dependencies);
-            var builderOrder = new Project[graph.Projects.Count];
-            var index = graph.Projects.Count - 1;
 
-            foreach (var project in graph.Projects)
-            {
-                CreateOrder_V2(project, builderOrder, index);
-            }
+            //var builderOrder = new Project[graph.Projects.Count];
+            //var index = graph.Projects.Count - 1;
 
-            return builderOrder;
+            //foreach (var project in graph.Projects)
+            //{
+            //    CreateOrder_V2(project, builderOrder, index);
+            //}
+
+            //return builderOrder;
+
+            return CreateOrder_V2(graph.Projects);
         }
 
-        public void CreateOrder_V2(Project project, Project[] order, int index)
+        Stack<Project> CreateOrder_V2(List<Project> projects)
         {
-            if (project.Built)
+            Stack<Project> stack = new Stack<Project>();
+
+            foreach(var project in projects)
             {
-                return;
+                if(project.Built == Project.BuildStatus.blank)
+                {
+                    if(!DoDFS(project, stack))
+                    {
+                        return null;
+                    }
+                }
+            }
+
+            return stack;
+        }
+
+        //public void CreateOrder_V2(Project project, Project[] order, int index)
+        //{
+        //    if (project.Built)
+        //    {
+        //        return;
+        //    }
+            
+        //    if(project.Children == null)
+        //    {
+            
+        //    }
+        //}
+
+        public bool DoDFS(Project project, Stack<Project> stack)
+        {
+            // Encounter a cycle dependency
+            if (project.Built == Project.BuildStatus.started)
+            {
+                return false;
             }
             
-            if(project.Children == null)
+            if(project.Built == Project.BuildStatus.blank)
             {
-            
+                foreach (var child in project.Children)
+                {
+                    if (!DoDFS(child, stack))
+                    {
+                        return false;
+                    }
+
+                    child.Built = Project.BuildStatus.built;
+                    stack.Push(child);
+                }
             }
+
+            return true;
         }
     }
     
@@ -155,7 +203,9 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
     {
         public string Name { get; set; }
         public int Dependencis { get; set; }
-        public bool Built { get; set; }
+
+        // If project has been built
+        public BuildStatus Built { get; set; } = BuildStatus.blank;
 
         public List<Project> Children { get; set; } = new List<Project>();
         private HashSet<string> Set = new HashSet<string>();
@@ -171,6 +221,13 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
                 Children.Add(node);
                 node.Dependencis++;
             }
+        }
+
+        public enum BuildStatus
+        {
+            built,
+            started,
+            blank
         }
     }
 }
