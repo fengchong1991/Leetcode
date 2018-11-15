@@ -35,8 +35,14 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
 
     public class TreeNode
     {
-        public string Name { get; set; }
+        public int Data { get; set; }
         public TreeNode[] Children { get; set; }
+        public TreeNode Parent { get; set; }
+
+        public TreeNode(int data)
+        {
+            Data = data;
+        }
     }
 
     public class Tree
