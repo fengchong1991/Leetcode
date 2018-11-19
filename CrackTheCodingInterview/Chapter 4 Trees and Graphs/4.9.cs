@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
 {
-    class _4_9
+
+    public class _4_9
     {
     }
 }

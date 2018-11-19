@@ -11,12 +11,11 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
     //necessarily a binary search tree.
     public class _4_8
     {
-        // If this was a binary tree, we could start from root and find where they diverge
+        // If this was a binary search tree, we could start from root and find where they diverge
 
 
         // If node has reference of it's parent node, we can think it as a linked list
         // Refer to question 2.7 where we find intersect of two linked list
-
         // Run time: O(d) depth of deeper node
         public TreeNode GetCommonAncestor_V1(TreeNode a, TreeNode b)
         {
@@ -25,9 +24,11 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
                 return null;
             }
 
+            // Get depth of two nodes
             var aDepth = GetDepth(a);
             var bDepth = GetDepth(b);
 
+            // Find and cut the extra nodes from the longer node
             var deeperNode = aDepth > bDepth ? a : b;
             var shallowNode = aDepth > bDepth ? b : a;
             var depthDifference = Math.Abs(aDepth - bDepth);
@@ -38,6 +39,7 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
                 depthDifference--;
             }
 
+            // Loop through both nodes upward until we find the common node
             while(deeperNode != null)
             {
                 if(deeperNode == shallowNode)
@@ -68,13 +70,30 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
 
         // If node has reference to parent
         // Check subtree while going upwards
+        // Run time: O(t), t is the size of the subtree for the first common ancestor
+        // Worst case: O(n), n is the number of nodes in this tree
         public BinaryTreeNode GetCommonAncestor_V2(BinaryTreeNode a, BinaryTreeNode b)
         {
-            if(Covers(a, b))
+            if (Covers(a, b))
             {
-
+                return a;
+            }
+            else if(Covers(b,a))
+            {
+                return b;
             }
 
+            var parent = a.Parent;
+            var sibling = GetSibling(a);
+
+            // Check if sibling contains b, if not check parent sibling
+            while(!Covers(sibling, b))
+            {
+                sibling = GetSibling(parent);
+                parent = parent.Parent;
+            }
+
+            return parent;
         }
 
         public bool Covers(BinaryTreeNode a, BinaryTreeNode b)
@@ -90,6 +109,61 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
             }
 
             return Covers(a.Left, b) || Covers(a.Right, b);
+        }
+
+        public BinaryTreeNode GetSibling(BinaryTreeNode node)
+        {
+            if(node == null || node.Parent == null)
+            {
+                return null;
+            }
+
+            return node.Parent.Left == node ? node.Parent.Right : node.Parent.Left;
+        }
+
+
+        // If node has no reference to parent
+        // Run time: O(n)
+
+        public BinaryTreeNode GetCommonAncestor_V3(BinaryTreeNode root, BinaryTreeNode a, BinaryTreeNode b)
+        {
+            // Error check
+            if( !Covers(root,a) || !Covers(root, b))
+            {
+                return null;
+            }
+
+            return CheckNode(root, a, b);      
+        }
+
+        public BinaryTreeNode CheckNode(BinaryTreeNode root, BinaryTreeNode a, BinaryTreeNode b)
+        {
+            // Check if a or b is at root
+            if(root == a || root == b)
+            {
+                return root;
+            }
+
+            var atLeft = Covers(root.Left, a);
+            var atRight = Covers(root.Right, b);
+            
+            // Differnt side
+            if(atLeft == atRight)
+            {
+                return root;
+            }
+            // Same side
+            else
+            {
+                var node = atLeft ? root.Left : root.Right;
+                return CheckNode(node, a, b);
+            }
+        }
+
+        // If node has no reference to parent
+        public BinaryTreeNode GetCommonAncestor_V4(BinaryTreeNode root, BinaryTreeNode a, BinaryTreeNode b)
+        {
+
         }
     }
 }
