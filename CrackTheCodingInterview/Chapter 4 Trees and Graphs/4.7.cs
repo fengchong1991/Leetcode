@@ -100,16 +100,6 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
             // Setup the graph
             var graph = SetupGraph(projects, dependencies);
 
-            //var builderOrder = new Project[graph.Projects.Count];
-            //var index = graph.Projects.Count - 1;
-
-            //foreach (var project in graph.Projects)
-            //{
-            //    CreateOrder_V2(project, builderOrder, index);
-            //}
-
-            //return builderOrder;
-
             return CreateOrder_V2(graph.Projects);
         }
 
@@ -131,19 +121,6 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
             return stack;
         }
 
-        //public void CreateOrder_V2(Project project, Project[] order, int index)
-        //{
-        //    if (project.Built)
-        //    {
-        //        return;
-        //    }
-            
-        //    if(project.Children == null)
-        //    {
-            
-        //    }
-        //}
-
         public bool DoDFS(Project project, Stack<Project> stack)
         {
             // Encounter a cycle dependency
@@ -154,6 +131,7 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
             
             if(project.Built == Project.BuildStatus.blank)
             {
+                project.Built = Project.BuildStatus.started;
                 foreach (var child in project.Children)
                 {
                     if (!DoDFS(child, stack))

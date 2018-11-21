@@ -123,8 +123,7 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
 
 
         // If node has no reference to parent
-        // Run time: O(n)
-
+        // Run time: (n) on a balanced tree. First two covers takes 2n, then each recursive call takes 2n/2, 2n/4...
         public BinaryTreeNode GetCommonAncestor_V3(BinaryTreeNode root, BinaryTreeNode a, BinaryTreeNode b)
         {
             // Error check
@@ -161,6 +160,7 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
         }
 
         // If node has no reference to parent
+        // V3 Covers method needs to check subtree again and again 
         public BinaryTreeNode GetCommonAncestor_V4(BinaryTreeNode root, BinaryTreeNode a, BinaryTreeNode b)
         {
 
