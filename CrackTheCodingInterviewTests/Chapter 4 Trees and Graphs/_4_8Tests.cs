@@ -86,5 +86,32 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs.Tests
 
             Assert.AreEqual(8, model.GetCommonAncestor_V3(node1, node2, node6).Value);
         }
+
+        [TestMethod()]
+        public void GetCommonAncestor_V4Test()
+        {
+            var model = new _4_8();
+
+            var node1 = new BinaryTreeNode(12);
+            var node2 = new BinaryTreeNode(8);
+            var node3 = new BinaryTreeNode(2);
+            var node4 = new BinaryTreeNode(9);
+            var node5 = new BinaryTreeNode(15);
+            var node6 = new BinaryTreeNode(11);
+
+            node1.Left = node2;
+            node1.Right = node5;
+            node2.Left = node3;
+            node2.Right = node4;
+            node4.Right = node6;
+
+            node2.Parent = node1;
+            node5.Parent = node1;
+            node3.Parent = node2;
+            node4.Parent = node2;
+            node6.Parent = node4;
+
+            Assert.AreEqual(8, model.GetCommonAncestor_V4(node1, node2, node6).Value);
+        }
     }
 }

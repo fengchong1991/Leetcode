@@ -19,7 +19,7 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
         // Run time: O(d) depth of deeper node
         public TreeNode GetCommonAncestor_V1(TreeNode a, TreeNode b)
         {
-            if(a == null || b == null)
+            if (a == null || b == null)
             {
                 return null;
             }
@@ -33,16 +33,16 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
             var shallowNode = aDepth > bDepth ? b : a;
             var depthDifference = Math.Abs(aDepth - bDepth);
 
-            while(depthDifference != 0)
+            while (depthDifference != 0)
             {
                 deeperNode = deeperNode.Parent;
                 depthDifference--;
             }
 
             // Loop through both nodes upward until we find the common node
-            while(deeperNode != null)
+            while (deeperNode != null)
             {
-                if(deeperNode == shallowNode)
+                if (deeperNode == shallowNode)
                 {
                     return deeperNode;
                 }
@@ -58,7 +58,7 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
         {
             var depth = 0;
 
-            while(node.Parent != null)
+            while (node.Parent != null)
             {
                 depth++;
                 node = node.Parent;
@@ -78,7 +78,7 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
             {
                 return a;
             }
-            else if(Covers(b,a))
+            else if (Covers(b, a))
             {
                 return b;
             }
@@ -87,7 +87,7 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
             var sibling = GetSibling(a);
 
             // Check if sibling contains b, if not check parent sibling
-            while(!Covers(sibling, b))
+            while (!Covers(sibling, b))
             {
                 sibling = GetSibling(parent);
                 parent = parent.Parent;
@@ -113,7 +113,7 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
 
         public BinaryTreeNode GetSibling(BinaryTreeNode node)
         {
-            if(node == null || node.Parent == null)
+            if (node == null || node.Parent == null)
             {
                 return null;
             }
@@ -127,27 +127,27 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
         public BinaryTreeNode GetCommonAncestor_V3(BinaryTreeNode root, BinaryTreeNode a, BinaryTreeNode b)
         {
             // Error check
-            if( !Covers(root,a) || !Covers(root, b))
+            if (!Covers(root, a) || !Covers(root, b))
             {
                 return null;
             }
 
-            return CheckNode(root, a, b);      
+            return CheckNode(root, a, b);
         }
 
         public BinaryTreeNode CheckNode(BinaryTreeNode root, BinaryTreeNode a, BinaryTreeNode b)
         {
             // Check if a or b is at root
-            if(root == a || root == b)
+            if (root == a || root == b)
             {
                 return root;
             }
 
             var atLeft = Covers(root.Left, a);
             var atRight = Covers(root.Right, b);
-            
+
             // Differnt side
-            if(atLeft == atRight)
+            if (atLeft == atRight)
             {
                 return root;
             }
@@ -163,7 +163,50 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
         // V3 Covers method needs to check subtree again and again 
         public BinaryTreeNode GetCommonAncestor_V4(BinaryTreeNode root, BinaryTreeNode a, BinaryTreeNode b)
         {
+            if (root == null)
+            {
+                return null;
+            }
 
+            if (root == a && root == b)
+            {
+                return root;
+            }
+
+            var nodeL = GetCommonAncestor_V4(root.Left, a, b);
+            var nodeR = GetCommonAncestor_V4(root.Right, a, b);
+            
+            // If both sides are not null, meaning two nodes appear in both sides, so root is the common ancestor
+            if(nodeL != null && nodeR != null)
+            {
+                return root;
+            }
+            
+            // If one side is not null
+            if((nodeL != null || nodeR != null) )
+            {
+                // If root equals to either of the target nodes, return root
+                if(root == a || root == b)
+                {
+                    return root;
+                }
+                // Return the non-null node
+                else
+                {
+                    return nodeL ?? nodeR;
+                }
+            }
+
+            // If both sides are null, return the root if it equals to either target nodes
+            if(root == a || root == b)
+            {
+                return root;
+            }
+            // Return null
+            else
+            {
+                return null;
+            }
         }
     }
 }
