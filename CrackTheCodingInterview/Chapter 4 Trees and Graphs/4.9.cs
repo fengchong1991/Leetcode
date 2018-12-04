@@ -14,7 +14,14 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
     {
         public string PrintAllCombination(BinaryTreeNode node)
         {
+            List<List<BinaryTreeNode>> combinations = new List<List<BinaryTreeNode>>();
+                     
 
+        }
+
+        public void AddNode(List<BinaryTreeNode> list, BinaryTreeNode node)
+        {
+            
         }
     }
 }
