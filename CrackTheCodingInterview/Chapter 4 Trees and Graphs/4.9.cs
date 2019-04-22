@@ -12,11 +12,17 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
 
     public class _4_9
     {
-        public string PrintAllCombination(BinaryTreeNode node)
+        public List<LinkedList<BinaryTreeNode>> PrintAllCombination(BinaryTreeNode node)
         {
-            List<List<BinaryTreeNode>> combinations = new List<List<BinaryTreeNode>>();
-                     
+            List<LinkedList<BinaryTreeNode>> combinations = new List<LinkedList<BinaryTreeNode>>();
 
+            if(node == null)
+            {
+                combinations.Add(new LinkedList<BinaryTreeNode>());
+            }
+
+
+            return combinations;
         }
 
         public void AddNode(List<BinaryTreeNode> list, BinaryTreeNode node)

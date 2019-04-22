@@ -168,7 +168,7 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
             }
         }
 
-        //Breadth-first serach, use queue
+        //Breadth-first serach (or level order search), use queue
         public void BFSSearch(GraphNode root)
         {
             Queue<GraphNode> queue = new Queue<GraphNode>();
