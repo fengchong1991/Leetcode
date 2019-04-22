@@ -73,6 +73,7 @@
     <Compile Include="Chapter 2 Linked Lists\_2_7Tests.cs" />
     <Compile Include="Chapter 2 Linked Lists\_2_8Tests.cs" />
     <Compile Include="Chapter 3 Stacks and Queues\_3_3Tests.cs" />
+    <Compile Include="Chapter 4 Trees and Graphs\_4_9Tests.cs" />
     <Compile Include="Chapter 4 Trees and Graphs\_4_1Tests.cs" />
     <Compile Include="Chapter 4 Trees and Graphs\_4_2Tests.cs" />
     <Compile Include="Chapter 4 Trees and Graphs\_4_3Tests.cs" />
