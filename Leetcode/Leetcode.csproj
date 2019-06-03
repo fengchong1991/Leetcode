@@ -42,12 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="804_Unique_Morse_Code_Words.cs" />
-    <Compile Include="F_929_Unique_Email_Addresses.cs" />
-    <Compile Include="U_595_Big Countries.cs" />
-    <Compile Include="F_709_To Lower case.cs" />
-    <Compile Include="U_760_Find Anagram Mappings.cs" />
-    <Compile Include="F_771_Jewels and Stones.cs" />
+    <Compile Include="804 Unique Morse Code Words.cs" />
+    <Compile Include="832 Flipping an Image.cs" />
+    <Compile Include="905 Sort Array By Parity.cs" />
+    <Compile Include="938 Range Sum of BST.cs" />
+    <Compile Include="929 Unique Email Addresses.cs" />
+    <Compile Include="595 Big Countries.cs" />
+    <Compile Include="709 To Lower case.cs" />
+    <Compile Include="760 Find Anagram Mappings.cs" />
+    <Compile Include="771 Jewels and Stones.cs" />
+    <Compile Include="961 N-Repeated Element in Size 2N Array.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
