@@ -10,6 +10,7 @@
 
 // Time complexity: O(N) 
 // Space complexity: O(H), h is the height of the tree
+// Use DFS algorithm to traverse all nodes
 public class Solution
 {
     public int RangeSumBST(TreeNode root, int L, int R)

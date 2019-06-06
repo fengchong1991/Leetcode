@@ -52,6 +52,7 @@
     <Compile Include="760 Find Anagram Mappings.cs" />
     <Compile Include="771 Jewels and Stones.cs" />
     <Compile Include="961 N-Repeated Element in Size 2N Array.cs" />
+    <Compile Include="977 Square of a Sorted Array.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
