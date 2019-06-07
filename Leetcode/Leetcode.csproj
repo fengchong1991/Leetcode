@@ -42,6 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="1051 Height Checker.cs" />
+    <Compile Include="461 Hamming Distance.cs" />
+    <Compile Include="617 Merge Two Binary Trees.cs" />
+    <Compile Include="657 Robot Return to Origin.cs" />
     <Compile Include="804 Unique Morse Code Words.cs" />
     <Compile Include="832 Flipping an Image.cs" />
     <Compile Include="905 Sort Array By Parity.cs" />
