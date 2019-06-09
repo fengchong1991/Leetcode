@@ -33,6 +33,5 @@ namespace Leetcode
     class _595_Big_Countries
     {
 
-
     }
 }

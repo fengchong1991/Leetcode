@@ -31,11 +31,31 @@ namespace Leetcode
     //The length of words will be at most 100.
     //Each words[i] will have length in range[1, 12].
     //words[i] will only consist of lowercase letters.
-    class _804_Unique_Morse_Code_Words
+    
+    //Time complexity is O(N), N represents the sum of the length of the words
+    //Space complexity is O(N)
+    public class Solution
     {
         public int UniqueMorseRepresentations(string[] words)
         {
+            var alphabets = new string[] { ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.." };
 
+            var result = new HashSet<string>();
+
+            foreach (var word in words)
+            {
+                var sb = new StringBuilder();
+
+                foreach (var cha in word)
+                {
+                    sb.Append(alphabets[cha - 'a']);
+                }
+
+                result.Add(sb.ToString());
+            }
+
+            return result.Count;
         }
     }
 }
+

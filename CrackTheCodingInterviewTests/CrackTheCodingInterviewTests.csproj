@@ -82,6 +82,8 @@
     <Compile Include="Chapter 4 Trees and Graphs\_4_6Tests.cs" />
     <Compile Include="Chapter 4 Trees and Graphs\_4_7Tests.cs" />
     <Compile Include="Chapter 4 Trees and Graphs\_4_8Tests.cs" />
+    <Compile Include="Chapter 5 Bit Manipulation\_5_2Tests.cs" />
+    <Compile Include="Chapter 5 Bit Manipulation\_5_1Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

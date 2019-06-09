@@ -28,7 +28,7 @@ namespace Leetcode
         {
             var start = (int)'A';
             var end = (int)'Z';
-            var offset = (int)'a' - (int)'A';
+            var offset = 'a' - 'A';
 
             var builder = new StringBuilder();
             foreach(var s in str)
