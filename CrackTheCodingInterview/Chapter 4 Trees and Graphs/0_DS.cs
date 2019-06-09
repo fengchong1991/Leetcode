@@ -167,6 +167,35 @@ namespace CrackTheCodingInterview.Chapter_4_Trees_and_Graphs
                 }
             }
         }
+        
+        public void DFSSearch_Stack(GraphNode root)
+        {
+            if(root == null)
+            {
+                return;
+            }
+
+            Stack<GraphNode> stack = new Stack<GraphNode>();
+            stack.Push(root);
+
+            while(stack.Count > 0)
+            {
+                var node = stack.Pop();
+
+                if(!node.Visited)
+                {
+                    node.Visited = true;
+
+                    foreach(var n in node.adjacent)
+                    {
+                        if(!n.Visited)
+                        {
+                            stack.Push(n);
+                        }
+                    }
+                }
+            }
+        }
 
         //Breadth-first serach (or level order search), use queue
         public void BFSSearch(GraphNode root)
