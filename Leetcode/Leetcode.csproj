@@ -44,10 +44,15 @@
   <ItemGroup>
     <Compile Include="1051 Height Checker.cs" />
     <Compile Include="461 Hamming Distance.cs" />
+    <Compile Include="561 Array Partition 1.cs" />
     <Compile Include="617 Merge Two Binary Trees.cs" />
+    <Compile Include="627 Swap Salary.cs" />
     <Compile Include="657 Robot Return to Origin.cs" />
+    <Compile Include="700 Search in a Binary Search Tree.cs" />
+    <Compile Include="728 Self Dividing Numbers.cs" />
     <Compile Include="804 Unique Morse Code Words.cs" />
     <Compile Include="832 Flipping an Image.cs" />
+    <Compile Include="852 Peak Index in a Mountain Array.cs" />
     <Compile Include="905 Sort Array By Parity.cs" />
     <Compile Include="938 Range Sum of BST.cs" />
     <Compile Include="929 Unique Email Addresses.cs" />
@@ -55,6 +60,7 @@
     <Compile Include="709 To Lower case.cs" />
     <Compile Include="760 Find Anagram Mappings.cs" />
     <Compile Include="771 Jewels and Stones.cs" />
+    <Compile Include="942 DI String Match.cs" />
     <Compile Include="961 N-Repeated Element in Size 2N Array.cs" />
     <Compile Include="977 Square of a Sorted Array.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

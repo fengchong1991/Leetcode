@@ -29,7 +29,5 @@ namespace Leetcode
 
             return t1;
         }
-
-
     }
 }
