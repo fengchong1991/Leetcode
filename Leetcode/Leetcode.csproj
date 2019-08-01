@@ -56,6 +56,7 @@
     <Compile Include="700 Search in a Binary Search Tree.cs" />
     <Compile Include="701 Insert into a Binary Search Tree.cs" />
     <Compile Include="728 Self Dividing Numbers.cs" />
+    <Compile Include="763 Partition Labels.cs" />
     <Compile Include="804 Unique Morse Code Words.cs" />
     <Compile Include="814 Binary Tree Pruning.cs" />
     <Compile Include="832 Flipping an Image.cs" />
