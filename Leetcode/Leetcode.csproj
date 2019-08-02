@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="1008 Construct Binary Search Tree from Preorder Traversal.cs" />
+    <Compile Include="1028 Recover a tree from preorder traversal.cs" />
     <Compile Include="1051 Height Checker.cs" />
     <Compile Include="461 Hamming Distance.cs" />
     <Compile Include="535 Encode and Decode TinyURL.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="890 Find and Replace Pattern.cs" />
     <Compile Include="894 All Possible Full Binary Trees.cs" />
     <Compile Include="905 Sort Array By Parity.cs" />
+    <Compile Include="921 Minium Add to Make Parentheses Valid.cs" />
     <Compile Include="922 Sort Array By Parity II.cs" />
     <Compile Include="938 Range Sum of BST.cs" />
     <Compile Include="929 Unique Email Addresses.cs" />
@@ -76,6 +78,7 @@
     <Compile Include="961 N-Repeated Element in Size 2N Array.cs" />
     <Compile Include="965 Univalued Binary Tree.cs" />
     <Compile Include="977 Square of a Sorted Array.cs" />
+    <Compile Include="979 Distribute Coins in Binary Tree.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
