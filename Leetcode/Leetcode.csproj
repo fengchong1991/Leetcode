@@ -45,8 +45,10 @@
     <Compile Include="1008 Construct Binary Search Tree from Preorder Traversal.cs" />
     <Compile Include="1028 Recover a tree from preorder traversal.cs" />
     <Compile Include="1051 Height Checker.cs" />
+    <Compile Include="338 Counting Bits.cs" />
     <Compile Include="461 Hamming Distance.cs" />
     <Compile Include="535 Encode and Decode TinyURL.cs" />
+    <Compile Include="559 Maximum Depth of N-ary Tree.cs" />
     <Compile Include="561 Array Partition 1.cs" />
     <Compile Include="589 N-ary Tree Preorder Traversal.cs" />
     <Compile Include="590 N-ary Tree Postorder Traversal.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="771 Jewels and Stones.cs" />
     <Compile Include="942 DI String Match.cs" />
     <Compile Include="950 Reveal Cards In Increasing Order.cs" />
+    <Compile Include="951 Flip Equvilant Binary Trees.cs" />
     <Compile Include="961 N-Repeated Element in Size 2N Array.cs" />
     <Compile Include="965 Univalued Binary Tree.cs" />
     <Compile Include="977 Square of a Sorted Array.cs" />
