@@ -44,10 +44,12 @@
   <ItemGroup>
     <Compile Include="1008 Construct Binary Search Tree from Preorder Traversal.cs" />
     <Compile Include="1028 Recover a tree from preorder traversal.cs" />
+    <Compile Include="1047 Remove All Adjacent Duplicates in String.cs" />
     <Compile Include="1051 Height Checker.cs" />
     <Compile Include="338 Counting Bits.cs" />
     <Compile Include="461 Hamming Distance.cs" />
     <Compile Include="535 Encode and Decode TinyURL.cs" />
+    <Compile Include="557 Reverse Words in a String 3.cs" />
     <Compile Include="559 Maximum Depth of N-ary Tree.cs" />
     <Compile Include="561 Array Partition 1.cs" />
     <Compile Include="589 N-ary Tree Preorder Traversal.cs" />
@@ -62,8 +64,10 @@
     <Compile Include="763 Partition Labels.cs" />
     <Compile Include="804 Unique Morse Code Words.cs" />
     <Compile Include="814 Binary Tree Pruning.cs" />
+    <Compile Include="821 Shortest Distance to a Character.cs" />
     <Compile Include="832 Flipping an Image.cs" />
     <Compile Include="852 Peak Index in a Mountain Array.cs" />
+    <Compile Include="867 Transpose Matrix.cs" />
     <Compile Include="876 Middle of the Linked List.cs" />
     <Compile Include="890 Find and Replace Pattern.cs" />
     <Compile Include="894 All Possible Full Binary Trees.cs" />
@@ -83,6 +87,7 @@
     <Compile Include="965 Univalued Binary Tree.cs" />
     <Compile Include="977 Square of a Sorted Array.cs" />
     <Compile Include="979 Distribute Coins in Binary Tree.cs" />
+    <Compile Include="986 Interval LIst Intersections.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
