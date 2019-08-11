@@ -62,12 +62,14 @@
     <Compile Include="701 Insert into a Binary Search Tree.cs" />
     <Compile Include="728 Self Dividing Numbers.cs" />
     <Compile Include="763 Partition Labels.cs" />
+    <Compile Include="791 Custom Sort String.cs" />
     <Compile Include="804 Unique Morse Code Words.cs" />
     <Compile Include="814 Binary Tree Pruning.cs" />
     <Compile Include="821 Shortest Distance to a Character.cs" />
     <Compile Include="832 Flipping an Image.cs" />
     <Compile Include="852 Peak Index in a Mountain Array.cs" />
     <Compile Include="867 Transpose Matrix.cs" />
+    <Compile Include="872 Leaf-similar trees.cs" />
     <Compile Include="876 Middle of the Linked List.cs" />
     <Compile Include="890 Find and Replace Pattern.cs" />
     <Compile Include="894 All Possible Full Binary Trees.cs" />
