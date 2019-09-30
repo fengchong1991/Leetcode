@@ -8,51 +8,65 @@ namespace LeetcodeTests
     public class UnitTest1
     {
         [TestMethod]
-        public void Test_979()
+        public void Test_1110()
         {
-            var node = new TreeNode(3);
-            node.left = new TreeNode(0);
-            node.right = new TreeNode(0);
+            var node = new TreeNode(1);
+            node.left = new TreeNode(2);
 
-            var model = new _979_Distribute_Coins_in_Binary_Tree();
+            DelNodes(node, new int[] { 2 });
 
-            Assert.AreEqual(2, model.DistributeCoins(node));
         }
 
-    }
 
-    public class _979_Distribute_Coins_in_Binary_Tree
-    {
-        public int DistributeCoins(TreeNode root)
+        public IList<TreeNode> DelNodes(TreeNode root, int[] to_delete)
         {
 
+            var deleteSet = new HashSet<int>(to_delete);
+            var result = new List<TreeNode>();
 
-            return GetMoves(root) - Math.Abs(root.val - 1);
+            Recurse(root, deleteSet, result, true);
+
+            return result;
         }
 
-        public int GetMoves(TreeNode root)
+        public void Recurse(TreeNode root, HashSet<int> deleteSet, List<TreeNode> result, bool isRoot = false)
         {
-
             if (root == null)
             {
-                return 0;
+                return;
             }
 
-            var total = 0;
+            TreeNode left = root.left;
+            TreeNode right = root.right;
 
-            var leftMove = DistributeCoins(root.left);
-            var rightMove = DistributeCoins(root.right);
 
-            total = leftMove + rightMove;
-
-            if (root.val != 1)
+            if (deleteSet.Contains(root.val))
             {
-                total += Math.Abs(root.val - 1);
+
+                if (root.left != null)
+                {
+                    result.Add(root.left);
+                }
+
+                if (root.right != null)
+                {
+                    result.Add(root.right);
+                }
+
+                root = null;
+
+            }
+            else if (isRoot)
+            {
+                result.Add(root);
             }
 
-            return total;
+            Recurse(left, deleteSet, result);
+            Recurse(right, deleteSet, result);
+
         }
     }
+
 
     public class TreeNode
     {

@@ -1,0 +1,21 @@
+﻿These questions are not so much about regurgitating design patterns as they are about demonstrating that
+you understand how to create elegant, maintainable object-oriented code. Poor performance on this type
+of question may raise serious red flags.
+
+1. Handle Ambiguity
+Object-oriented design (OOD) questions are often intentionally vague in order to test whether you'll make
+assumptions or if you'll ask clarifying questions.
+
+2. Define the Core Objects
+For example, suppose we are asked to do the object-oriented design for a restaurant. Our core objects
+might be things like Table, Guest, Party, Order, Meal, Employee, Server, and Host.
+
+3. Analyze Relationships
+Having more or less decided on our core objects, we now want to analyze the relationships between the
+objects. Which objects are members of which other objects? Do any objects inherit from any others? Are
+relationships many-to-many or one-to-many?
+
+4. Investigate Actions
+At this point, you should have the basic outline of your object-oriented design. What remains is to consider
+the key actions that the objects will take and how they relate to each other. You may find that you have
+forgotten some objects, and you will need to update your design.
