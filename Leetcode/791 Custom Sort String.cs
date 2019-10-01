@@ -8,5 +8,12 @@ namespace Leetcode
 {
     class _791_Custom_Sort_String
     {
+        public string CustomSortString(string S, string T)
+        {
+
+            var charArray = new int[26];
+
+
+        }
     }
 }
