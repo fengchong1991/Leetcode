@@ -10,60 +10,53 @@ namespace LeetcodeTests
         [TestMethod]
         public void Test_1110()
         {
-            var node = new TreeNode(1);
-            node.left = new TreeNode(2);
+            var matrix = new int[][]
+            {
+               new int[] { 11, 74, 0, 93 },
+               new int[] { 40, 11, 74, 7}
+            };
 
-            DelNodes(node, new int[] { 2 });
-
+            IsToeplitzMatrix(matrix);
         }
 
-
-        public IList<TreeNode> DelNodes(TreeNode root, int[] to_delete)
+        public bool IsToeplitzMatrix(int[][] matrix)
         {
+            var m = matrix.Length;
+            var n = matrix[0].Length;
 
-            var deleteSet = new HashSet<int>(to_delete);
-            var result = new List<TreeNode>();
-
-            Recurse(root, deleteSet, result, true);
-
-            return result;
-        }
-
-        public void Recurse(TreeNode root, HashSet<int> deleteSet, List<TreeNode> result, bool isRoot = false)
-        {
-            if (root == null)
+            // Check from top to bottom
+            for (var i = 0; i < m; i++)
             {
-                return;
-            }
+                var j = 0;
+                var number = matrix[i][j];
 
-            TreeNode left = root.left;
-            TreeNode right = root.right;
-
-
-            if (deleteSet.Contains(root.val))
-            {
-
-                if (root.left != null)
+                while (i < m && j < n)
                 {
-                    result.Add(root.left);
+
+                    if (number != matrix[i++][j++])
+                    {
+                        return false;
+                    }
                 }
-
-                if (root.right != null)
-                {
-                    result.Add(root.right);
-                }
-
-                root = null;
-
             }
-            else if (isRoot)
+
+
+            // Check from left to right
+            for (var i = 0; i < n; i++)
             {
-                result.Add(root);
+                var j = 0;
+                var number = matrix[j][i];
+
+                while (i < n && j < m)
+                {
+                    if (number != matrix[j++][i++])
+                    {
+                        return false;
+                    }
+                }
             }
 
-            Recurse(left, deleteSet, result);
-            Recurse(right, deleteSet, result);
-
+            return true;
         }
     }
 

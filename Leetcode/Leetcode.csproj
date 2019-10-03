@@ -44,12 +44,14 @@
   <ItemGroup>
     <Compile Include="1008 Construct Binary Search Tree from Preorder Traversal.cs" />
     <Compile Include="1028 Recover a tree from preorder traversal.cs" />
+    <Compile Include="104 Maximum Depth of Binary Tree.cs" />
     <Compile Include="1043 Partition Array for Maximun Sum.cs" />
     <Compile Include="1047 Remove All Adjacent Duplicates in String.cs" />
     <Compile Include="1051 Height Checker.cs" />
     <Compile Include="1110 Delete Nodes And Return Forest.cs" />
     <Compile Include="338 Counting Bits.cs" />
     <Compile Include="344 Reverse String.cs" />
+    <Compile Include="442 Find All Duplicates in an Array.cs" />
     <Compile Include="461 Hamming Distance.cs" />
     <Compile Include="476 Number Complement.cs" />
     <Compile Include="535 Encode and Decode TinyURL.cs" />
@@ -66,6 +68,7 @@
     <Compile Include="701 Insert into a Binary Search Tree.cs" />
     <Compile Include="728 Self Dividing Numbers.cs" />
     <Compile Include="763 Partition Labels.cs" />
+    <Compile Include="766 Toeplitz Matrix.cs" />
     <Compile Include="791 Custom Sort String.cs" />
     <Compile Include="804 Unique Morse Code Words.cs" />
     <Compile Include="814 Binary Tree Pruning.cs" />
