@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LeetcodeTests
@@ -10,53 +11,35 @@ namespace LeetcodeTests
         [TestMethod]
         public void Test_1110()
         {
-            var matrix = new int[][]
-            {
-               new int[] { 11, 74, 0, 93 },
-               new int[] { 40, 11, 74, 7}
-            };
 
-            IsToeplitzMatrix(matrix);
+            ConstructFromPrePost(new int[] {2,1 }, new int[] {1,2 });
         }
 
-        public bool IsToeplitzMatrix(int[][] matrix)
+        public TreeNode ConstructFromPrePost(int[] pre, int[] post)
         {
-            var m = matrix.Length;
-            var n = matrix[0].Length;
-
-            // Check from top to bottom
-            for (var i = 0; i < m; i++)
+            if (pre.Length == 0)
             {
-                var j = 0;
-                var number = matrix[i][j];
+                return null;
+            }
 
-                while (i < m && j < n)
+            var root = new TreeNode(pre[0]);
+
+            if (pre.Length == 1)
+            {
+                return root;
+            }
+
+            for (var j = 0; j < post.Length; j++)
+            {
+                if (pre[1] == post[j])
                 {
-
-                    if (number != matrix[i++][j++])
-                    {
-                        return false;
-                    }
+                    root.left = ConstructFromPrePost(pre.Skip(1).Take(j + 1).ToArray(), post.Take(j + 1).ToArray());
+                    root.right = ConstructFromPrePost(pre.Skip(j + 2).ToArray(), post.Skip(j + 1).ToArray());
+                    break;
                 }
             }
 
-
-            // Check from left to right
-            for (var i = 0; i < n; i++)
-            {
-                var j = 0;
-                var number = matrix[j][i];
-
-                while (i < n && j < m)
-                {
-                    if (number != matrix[j++][i++])
-                    {
-                        return false;
-                    }
-                }
-            }
-
-            return true;
+            return root;
         }
     }
 
