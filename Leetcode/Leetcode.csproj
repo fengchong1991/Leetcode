@@ -76,6 +76,7 @@
     <Compile Include="814 Binary Tree Pruning.cs" />
     <Compile Include="821 Shortest Distance to a Character.cs" />
     <Compile Include="832 Flipping an Image.cs" />
+    <Compile Include="841 Keys and Rooms.cs" />
     <Compile Include="852 Peak Index in a Mountain Array.cs" />
     <Compile Include="867 Transpose Matrix.cs" />
     <Compile Include="872 Leaf-similar trees.cs" />
