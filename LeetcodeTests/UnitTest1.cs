@@ -12,43 +12,35 @@ namespace LeetcodeTests
         public void Test_1110()
         {
 
-            ConstructFromPrePost(new int[] {2,1 }, new int[] {1,2 });
+            var array = new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
+
+            var result = MaxSubArray(array);
         }
 
-        public TreeNode ConstructFromPrePost(int[] pre, int[] post)
+        public int MaxSubArray(int[] nums)
         {
-            if (pre.Length == 0)
+            var largestSum = new int[nums.Length];
+            largestSum[0] = nums[0];
+
+            var max = nums[0];
+
+            for (var i = 1; i < nums.Length; i++)
             {
-                return null;
+                largestSum[i] = nums[i] + largestSum[i - 1] > 0 ? largestSum[i - 1] : 0;
+
+                max = Math.Max(max, largestSum[i]);
             }
 
-            var root = new TreeNode(pre[0]);
-
-            if (pre.Length == 1)
-            {
-                return root;
-            }
-
-            for (var j = 0; j < post.Length; j++)
-            {
-                if (pre[1] == post[j])
-                {
-                    root.left = ConstructFromPrePost(pre.Skip(1).Take(j + 1).ToArray(), post.Take(j + 1).ToArray());
-                    root.right = ConstructFromPrePost(pre.Skip(j + 2).ToArray(), post.Skip(j + 1).ToArray());
-                    break;
-                }
-            }
-
-            return root;
+            return max;
         }
-    }
 
 
-    public class TreeNode
-    {
-        public int val;
-        public TreeNode left;
-        public TreeNode right;
-        public TreeNode(int x) { val = x; }
+        public class TreeNode
+        {
+            public int val;
+            public TreeNode left;
+            public TreeNode right;
+            public TreeNode(int x) { val = x; }
+        }
     }
 }
