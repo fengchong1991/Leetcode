@@ -12,26 +12,48 @@ namespace LeetcodeTests
         public void Test_1110()
         {
 
-            var array = new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
-
-            var result = MaxSubArray(array);
+            var array = new int[][] {
+                new int[]{2,3},
+                new int[]{4,5},
+                new int[]{6,7},
+                new int[]{8,9},
+                new int[]{1,10}
+            };
+            var result = Merge(array);
         }
 
-        public int MaxSubArray(int[] nums)
+        public int[][] Merge(int[][] intervals)
         {
-            var largestSum = new int[nums.Length];
-            largestSum[0] = nums[0];
-
-            var max = nums[0];
-
-            for (var i = 1; i < nums.Length; i++)
+            if (intervals.Length == 0)
             {
-                largestSum[i] = nums[i] + largestSum[i - 1] > 0 ? largestSum[i - 1] : 0;
-
-                max = Math.Max(max, largestSum[i]);
+                return new int[0][];
             }
 
-            return max;
+            Array.Sort(intervals, (a, b) => a[0].CompareTo(b[0]));
+
+            var result = new List<int[]>();
+
+            var start = intervals[0][0];
+            var end = intervals[0][1];
+
+
+            for (var i = 1; i < intervals.Length; i++)
+            {
+                if (intervals[i][0] > intervals[i - 1][1])
+                {
+                    result.Add(new int[] { start, end });
+                    start = intervals[i][0];
+                    end = intervals[i][1];
+                }
+                else
+                {
+                    end = Math.Max(end, intervals[i][1]);
+                }
+            }
+
+            result.Add(new int[] { start, end });
+
+            return result.ToArray();
         }
 
 
