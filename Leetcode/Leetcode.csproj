@@ -56,14 +56,18 @@
     <Compile Include="142 Linked List Cycle II.cs" />
     <Compile Include="15 3Sum.cs" />
     <Compile Include="202 Happy Number.cs" />
+    <Compile Include="206 Reverse linked list.cs" />
     <Compile Include="209 Minimum Size Subarray Sum.cs" />
     <Compile Include="26 Remove Duplicates from sorted array.cs" />
+    <Compile Include="268 Missing Number.cs" />
+    <Compile Include="287 Find the duplicate number.cs" />
     <Compile Include="338 Counting Bits.cs" />
     <Compile Include="340 Longest Substring with At Most K Distinct Characters.cs" />
     <Compile Include="344 Reverse String.cs" />
     <Compile Include="406 Queue Reconstruction by Height.cs" />
     <Compile Include="42 Trapping Rain Water.cs" />
     <Compile Include="442 Find All Duplicates in an Array.cs" />
+    <Compile Include="448  Find All Numbers Disappeared in an Array.cs" />
     <Compile Include="461 Hamming Distance.cs" />
     <Compile Include="476 Number Complement.cs" />
     <Compile Include="53 Maximum subarray.cs" />
@@ -97,6 +101,7 @@
     <Compile Include="890 Find and Replace Pattern.cs" />
     <Compile Include="894 All Possible Full Binary Trees.cs" />
     <Compile Include="905 Sort Array By Parity.cs" />
+    <Compile Include="92 Reverse Linked List II.cs" />
     <Compile Include="921 Minium Add to Make Parentheses Valid.cs" />
     <Compile Include="922 Sort Array By Parity II.cs" />
     <Compile Include="938 Range Sum of BST.cs" />
