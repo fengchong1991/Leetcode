@@ -58,6 +58,7 @@
     <Compile Include="202 Happy Number.cs" />
     <Compile Include="206 Reverse linked list.cs" />
     <Compile Include="209 Minimum Size Subarray Sum.cs" />
+    <Compile Include="25 Reverse Nodes in k-Group.cs" />
     <Compile Include="26 Remove Duplicates from sorted array.cs" />
     <Compile Include="268 Missing Number.cs" />
     <Compile Include="287 Find the duplicate number.cs" />
