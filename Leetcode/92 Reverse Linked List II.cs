@@ -10,7 +10,6 @@ namespace Leetcode
     {
         public ListNode ReverseBetween(ListNode head, int m, int n)
         {
-
             ListNode tail = null;
             var current = head;
             ListNode next = null;

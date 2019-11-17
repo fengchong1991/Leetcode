@@ -12,48 +12,57 @@ namespace LeetcodeTests
         public void Test_1110()
         {
 
-            var array = new int[][] {
-                new int[]{2,3},
-                new int[]{4,5},
-                new int[]{6,7},
-                new int[]{8,9},
-                new int[]{1,10}
-            };
-            var result = Merge(array);
+            var n1 = new ListNode(1);
+            var n2 = new ListNode(2);
+            var n3 = new ListNode(3);
+            var n4 = new ListNode(4);
+            var n5 = new ListNode(5);
+
+            n1.next = n2;
+            n2.next = n3;
+            n3.next = n4;
+            n4.next = n5;
+
+            var result = ReverseKGroup(n1, 3);
         }
 
-        public int[][] Merge(int[][] intervals)
+        public static ListNode ReverseKGroup(ListNode head, int k)
         {
-            if (intervals.Length == 0)
+            if (k <= 1 || head == null)
+                return head;
+
+            ListNode current = head, previous = null;
+            while (true)
             {
-                return new int[0][];
+                ListNode lastNodeOfPreviousPart = previous;
+                // after reversing the LinkedList 'current' will become the last node of the sub-list
+                ListNode lastNodeOfSubList = current;
+                ListNode next = null; // will be used to temporarily store the next node
+                                      // reverse 'k' nodes
+                for (int i = 0; current != null && i < k; i++)
+                {
+                    next = current.next;
+                    current.next = previous;
+                    previous = current;
+                    current = next;
+                }
+
+                // connect with the previous part
+                if (lastNodeOfPreviousPart != null)
+                    lastNodeOfPreviousPart.next = previous; // 'previous' is now the first node of the sub-list
+                else // this means we are changing the first node (head) of the LinkedList
+                    head = previous;
+
+                // connect with the next part
+                lastNodeOfSubList.next = current;
+
+                if (current == null) // break, if we've reached the end of the LinkedList
+                    break;
+                // prepare for the next sub-list
+                previous = lastNodeOfSubList;
             }
 
-            Array.Sort(intervals, (a, b) => a[0].CompareTo(b[0]));
-
-            var result = new List<int[]>();
-
-            var start = intervals[0][0];
-            var end = intervals[0][1];
-
-
-            for (var i = 1; i < intervals.Length; i++)
-            {
-                if (intervals[i][0] > intervals[i - 1][1])
-                {
-                    result.Add(new int[] { start, end });
-                    start = intervals[i][0];
-                    end = intervals[i][1];
-                }
-                else
-                {
-                    end = Math.Max(end, intervals[i][1]);
-                }
-            }
-
-            result.Add(new int[] { start, end });
-
-            return result.ToArray();
+            return head;
         }
 
 
@@ -63,6 +72,15 @@ namespace LeetcodeTests
             public TreeNode left;
             public TreeNode right;
             public TreeNode(int x) { val = x; }
+        }
+
+
+        // Definition for singly-linked list.
+        public class ListNode
+        {
+            public int val;
+            public ListNode next;
+            public ListNode(int x) { val = x; }
         }
     }
 }

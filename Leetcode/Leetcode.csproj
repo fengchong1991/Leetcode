@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="1 Two Sum.cs" />
     <Compile Include="1008 Construct Binary Search Tree from Preorder Traversal.cs" />
+    <Compile Include="102 Binary Tree Level Order Traversal.cs" />
     <Compile Include="1026 Maximum Difference Between Node and Ancestor.cs" />
     <Compile Include="1028 Recover a tree from preorder traversal.cs" />
     <Compile Include="104 Maximum Depth of Binary Tree.cs" />
