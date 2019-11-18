@@ -47,10 +47,13 @@
     <Compile Include="102 Binary Tree Level Order Traversal.cs" />
     <Compile Include="1026 Maximum Difference Between Node and Ancestor.cs" />
     <Compile Include="1028 Recover a tree from preorder traversal.cs" />
+    <Compile Include="103 Binary Tree Zigzag Level Order Traversal.cs" />
     <Compile Include="104 Maximum Depth of Binary Tree.cs" />
     <Compile Include="1043 Partition Array for Maximun Sum.cs" />
     <Compile Include="1047 Remove All Adjacent Duplicates in String.cs" />
     <Compile Include="1051 Height Checker.cs" />
+    <Compile Include="107 Binary Tree Level Order Traversal II.cs" />
+    <Compile Include="111 Minimum depth of binary tree.cs" />
     <Compile Include="1110 Delete Nodes And Return Forest.cs" />
     <Compile Include="136 Single Number.cs" />
     <Compile Include="141 Linked List Cycle.cs" />

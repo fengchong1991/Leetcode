@@ -6,20 +6,19 @@ using System.Threading.Tasks;
 
 namespace Leetcode
 {
-    class _102_Binary_Tree_Level_Order_Traversal
+    class _107_Binary_Tree_Level_Order_Traversal_II
     {
-
-        // Running time: O(N), n is the number of nodes
-        // Space: O(N)
-        public IList<IList<int>> LevelOrder(TreeNode root)
+        // Running time: O(N)
+        public IList<IList<int>> LevelOrderBottom(TreeNode root)
         {
 
             if (root == null)
             {
-                return new List<IList<int>>();
+                return new LinkedList<IList<int>>().ToList();
             }
 
-            var list = new List<IList<int>>();
+            // Use LinkedList
+            var list = new LinkedList<IList<int>>();
 
             var queue = new Queue<TreeNode>();
 
@@ -50,10 +49,10 @@ namespace Leetcode
                     }
                 }
 
-                list.Add(levelList);
+                list.AddFirst(levelList);
             }
 
-            return list;
+            return list.ToList();
         }
     }
 }

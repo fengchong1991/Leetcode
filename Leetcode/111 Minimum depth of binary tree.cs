@@ -6,38 +6,38 @@ using System.Threading.Tasks;
 
 namespace Leetcode
 {
-    class _102_Binary_Tree_Level_Order_Traversal
+    class _111_Minimum_depth_of_binary_tree
     {
 
-        // Running time: O(N), n is the number of nodes
-        // Space: O(N)
-        public IList<IList<int>> LevelOrder(TreeNode root)
+        public int MinDepth(TreeNode root)
         {
 
             if (root == null)
             {
-                return new List<IList<int>>();
+                return 0;
             }
 
-            var list = new List<IList<int>>();
+            var level = 0;
 
             var queue = new Queue<TreeNode>();
 
-
             queue.Enqueue(root);
-
 
             while (queue.Count > 0)
             {
+                level++;
 
-                var levelList = new List<int>();
                 var levelSize = queue.Count;
 
                 for (var i = 0; i < levelSize; i++)
                 {
 
                     var node = queue.Dequeue();
-                    levelList.Add(node.val);
+
+                    if (node.left == null && node.right == null)
+                    {
+                        return level;
+                    }
 
                     if (node.left != null)
                     {
@@ -49,11 +49,9 @@ namespace Leetcode
                         queue.Enqueue(node.right);
                     }
                 }
-
-                list.Add(levelList);
             }
 
-            return list;
+            return level;
         }
     }
 }

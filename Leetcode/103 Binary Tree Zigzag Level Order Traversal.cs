@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace Leetcode
 {
-    class _102_Binary_Tree_Level_Order_Traversal
+    class _103_Binary_Tree_Zigzag_Level_Order_Traversal
     {
-
-        // Running time: O(N), n is the number of nodes
-        // Space: O(N)
-        public IList<IList<int>> LevelOrder(TreeNode root)
+        public IList<IList<int>> ZigzagLevelOrder(TreeNode root)
         {
 
             if (root == null)
@@ -19,25 +16,35 @@ namespace Leetcode
                 return new List<IList<int>>();
             }
 
-            var list = new List<IList<int>>();
+            var leftToRight = false;
 
             var queue = new Queue<TreeNode>();
 
+            var list = new List<IList<int>>();
 
             queue.Enqueue(root);
-
 
             while (queue.Count > 0)
             {
 
                 var levelList = new List<int>();
+
                 var levelSize = queue.Count;
 
                 for (var i = 0; i < levelSize; i++)
                 {
-
                     var node = queue.Dequeue();
-                    levelList.Add(node.val);
+
+                    if (leftToRight)
+                    {
+                        levelList.Insert(0, node.val);
+
+                    }
+                    else
+                    {
+                        levelList.Add(node.val);
+                    }
+
 
                     if (node.left != null)
                     {
@@ -51,9 +58,11 @@ namespace Leetcode
                 }
 
                 list.Add(levelList);
+                leftToRight = !leftToRight;
             }
 
             return list;
         }
+
     }
 }
