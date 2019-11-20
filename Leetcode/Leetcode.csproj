@@ -78,6 +78,7 @@
     <Compile Include="437 Path Sum III.cs" />
     <Compile Include="442 Find All Duplicates in an Array.cs" />
     <Compile Include="448  Find All Numbers Disappeared in an Array.cs" />
+    <Compile Include="46 Permutations.cs" />
     <Compile Include="461 Hamming Distance.cs" />
     <Compile Include="476 Number Complement.cs" />
     <Compile Include="53 Maximum subarray.cs" />

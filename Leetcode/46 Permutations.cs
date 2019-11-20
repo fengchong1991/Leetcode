@@ -1,21 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace LeetcodeTests
+namespace Leetcode
 {
-    [TestClass]
-    public class UnitTest1
+    class _46_Permutations
     {
-        [TestMethod]
-        public void Test_1110()
-        {
-            var array = new int[] { 1, 2, 3 };
-            
-            var result = Permute(array);
-        }
-
         // BFS
         public IList<IList<int>> Permute(int[] nums)
         {
@@ -47,22 +39,6 @@ namespace LeetcodeTests
             return permutations.ToList();
         }
 
-
-        public class TreeNode
-        {
-            public int val;
-            public TreeNode left;
-            public TreeNode right;
-            public TreeNode(int x) { val = x; }
-        }
-
-
-        // Definition for singly-linked list.
-        public class ListNode
-        {
-            public int val;
-            public ListNode next;
-            public ListNode(int x) { val = x; }
-        }
+        // BackTracking
     }
 }
