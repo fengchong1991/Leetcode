@@ -75,6 +75,7 @@
     <Compile Include="340 Longest Substring with At Most K Distinct Characters.cs" />
     <Compile Include="344 Reverse String.cs" />
     <Compile Include="406 Queue Reconstruction by Height.cs" />
+    <Compile Include="416 Partition Equal Subset Sum.cs" />
     <Compile Include="42 Trapping Rain Water.cs" />
     <Compile Include="437 Path Sum III.cs" />
     <Compile Include="442 Find All Duplicates in an Array.cs" />
