@@ -1,25 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace LeetcodeTests
+namespace Leetcode
 {
-    [TestClass]
-    public class UnitTest1
+    class _218_The_Skyline_Problem
     {
-        [TestMethod]
-        public void Test_1110()
-        {
-            var array = new int[5][];
-            array[0] = new int[] { 3, 9, 10 };
-            array[1] = new int[] { 3, 7, 15 };
-            array[2] = new int[] { 5, 12, 12 };
-            array[3] = new int[] { 15, 20, 10 };
-            array[4] = new int[] { 19, 24, 8 };
-            var a = GetSkyline(array);
-        }
-
         public IList<IList<int>> GetSkyline(int[][] buildings)
         {
             var buildingPoints = new List<IList<int>>();
@@ -44,8 +32,10 @@ namespace LeetcodeTests
                 }
             });
 
-            var sortedDic = new SortedDictionary<int, int>(new DescendingComparer<int>());
-            sortedDic.Add(0, 0);
+            var sortedDic = new SortedDictionary<int, int>(new DescendingComparer<int>())
+            {
+                { 0, 0 }
+            };
 
             int preMax = 0;
 
@@ -89,22 +79,11 @@ namespace LeetcodeTests
         {
             public int Compare(T x, T y) { return y.CompareTo(x); }
         }
+    }
 
-        public class TreeNode
+        public class DescendingComparer<T> : IComparer<T> where T : IComparable<T>
         {
-            public int val;
-            public TreeNode left;
-            public TreeNode right;
-            public TreeNode(int x) { val = x; }
-        }
-
-
-        // Definition for singly-linked list.
-        public class ListNode
-        {
-            public int val;
-            public ListNode next;
-            public ListNode(int x) { val = x; }
+            public int Compare(T x, T y) { return y.CompareTo(x); }
         }
     }
 }
