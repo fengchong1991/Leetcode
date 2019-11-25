@@ -64,6 +64,7 @@
     <Compile Include="141 Linked List Cycle.cs" />
     <Compile Include="142 Linked List Cycle II.cs" />
     <Compile Include="15 3Sum.cs" />
+    <Compile Include="19 Remove Nth Node From End of List.cs" />
     <Compile Include="200 Number of Islands.cs" />
     <Compile Include="202 Happy Number.cs" />
     <Compile Include="206 Reverse linked list.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="518 Coin Change 2.cs" />
     <Compile Include="53 Maximum subarray.cs" />
     <Compile Include="535 Encode and Decode TinyURL.cs" />
+    <Compile Include="54 Spiral Matrix.cs" />
     <Compile Include="557 Reverse Words in a String 3.cs" />
     <Compile Include="559 Maximum Depth of N-ary Tree.cs" />
     <Compile Include="56 Merge Intervals.cs" />
@@ -110,6 +112,7 @@
     <Compile Include="78 Subsets.cs" />
     <Compile Include="784 Letter Case Permutation.cs" />
     <Compile Include="791 Custom Sort String.cs" />
+    <Compile Include="8 String o Integer.cs" />
     <Compile Include="804 Unique Morse Code Words.cs" />
     <Compile Include="814 Binary Tree Pruning.cs" />
     <Compile Include="821 Shortest Distance to a Character.cs" />
@@ -142,6 +145,7 @@
     <Compile Include="977 Squres of a sorted array.cs" />
     <Compile Include="979 Distribute Coins in Binary Tree.cs" />
     <Compile Include="986 Interval LIst Intersections.cs" />
+    <Compile Include="Master Mind.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

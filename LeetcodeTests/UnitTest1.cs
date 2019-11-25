@@ -11,75 +11,59 @@ namespace LeetcodeTests
         [TestMethod]
         public void Test_1110()
         {
-            var array = new int[5][];
-            array[0] = new int[] { 3, 9, 10 };
-            array[1] = new int[] { 3, 7, 15 };
-            array[2] = new int[] { 5, 12, 12 };
-            array[3] = new int[] { 15, 20, 10 };
-            array[4] = new int[] { 19, 24, 8 };
-            var a = GetSkyline(array);
+            var matrix = new int[3][];
+
+
+
+            matrix[0] = new int[] { 1, 2, 3 };
+            matrix[1] = new int[] { 4, 5, 6 };
+            matrix[2] = new int[] { 7, 8, 9 };
+
+            var reuslt = SpiralOrder(matrix);
+
         }
 
-        public IList<IList<int>> GetSkyline(int[][] buildings)
+        public IList<int> SpiralOrder(int[][] matrix)
         {
-            var buildingPoints = new List<IList<int>>();
 
-            var result = new List<IList<int>>();
+            var result = new List<int>();
 
-            foreach (var item in buildings)
+            if (matrix.Length == 0)
             {
-                buildingPoints.Add(new List<int>() { item[0], -item[2] });
-                buildingPoints.Add(new List<int>() { item[1], item[2] });
+                return result;
             }
 
-            buildingPoints.Sort((a, b) =>
+
+            var m = matrix.Length;
+            var n = matrix[0].Length;
+
+            var offset = 0;
+
+            while (result.Count < m * n)
             {
-                if (a[0] != b[0])
-                {
-                    return a[0].CompareTo(b[0]);
-                }
-                else
-                {
-                    return a[1] - b[1];
-                }
-            });
 
-            var sortedDic = new SortedDictionary<int, int>(new DescendingComparer<int>());
-            sortedDic.Add(0, 0);
-
-            int preMax = 0;
-
-            foreach (var bp in buildingPoints)
-            {
-                if (bp[1] < 0)
+                for (var j = offset; j < n - 2 * offset; j++)
                 {
-                    if (sortedDic.ContainsKey(-bp[1]))
-                    {
-                        sortedDic[-bp[1]]++;
-                    }
-                    else
-                    {
-                        sortedDic.Add(-bp[1], 1);
-                    }
-                }
-                else
-                {
-                    if (sortedDic.ContainsKey(bp[1]) && sortedDic[bp[1]] > 1)
-                    {
-                        sortedDic[bp[1]]--;
-                    }
-                    else
-                    {
-                        sortedDic.Remove(bp[1]);
-                    }
+                    result.Add(matrix[offset][j]);
                 }
 
-                var curHeight = sortedDic.First();
-                if (curHeight.Key != preMax)
+                for (var i = offset + 1; i < m - 2 * offset; i++)
                 {
-                    result.Add(new int[] { bp[0], curHeight.Key });
-                    preMax = curHeight.Key;
+                    result.Add(matrix[i][n - offset - 1]);
                 }
+
+                for (var j = m - 2 * offset - 2; j >= offset; j--)
+                {
+                    result.Add(matrix[m - offset - 1][j]);
+                }
+
+                for (var i = n - 2 * offset - 2; i >= offset + 1; i--)
+                {
+                    result.Add(matrix[i][offset]);
+                }
+
+
+                offset++;
             }
 
             return result;
